@@ -1,0 +1,13 @@
+ul li a:hover {
+    background-color: lightgreen;
+}
+
+ul li a:visited {
+    background-color: darkgreen;
+}
+
+ul li a:focus {
+    background-color: red; /* More noticeable */
+    color: white;
+    border: 2px solid black;
+}
