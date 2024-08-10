@@ -16,4 +16,4 @@ requires fonts from @import url('https://fonts.googleapis.com/css2?family=Lato:i
 
 ### August 10
 header component created and made responsive
-
+The fonts used are Lato and Roboto.
