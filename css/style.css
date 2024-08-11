@@ -1,5 +1,8 @@
-/* Lato font imported from google fonts */
+/* Lato and roboto font imported from google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 
 * {
     margin: 0;
@@ -346,6 +349,10 @@ justify-content: space-between;
 }
 
 @media screen and (max-width: 768px){
+    header{
+        height: 18.0625rem;
+    }
+
     #contactMenu{
         flex-direction: column;
     }
@@ -380,6 +387,9 @@ justify-content: space-between;
 }
 
 @media screen and (max-width: 426px){
+    header{
+        height: 27.7rem;
+    }
     header #menu{
         height: 19.77rem;
     }
@@ -446,6 +456,10 @@ justify-content: space-between;
 }
 
 @media screen and (max-width: 376px){
+    header{
+        height: 29.7rem;
+    }
+
     .register{
         width: 14rem;
     }
@@ -495,3 +509,380 @@ justify-content: space-between;
 }
 
 /* header css end */
+
+/* footer css start */
+footer {
+    width: 100%;
+height: 36.0625rem;
+flex-shrink: 0;
+background-color: green;
+display: flex;
+flex-direction: column;
+}
+
+#footerTop{
+    width: 100%;
+    height: 30.6rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2.45rem;
+    padding-right: 2.45rem;
+    border-bottom:  1.106px solid rgba(153, 153, 153, 0.33);
+}
+
+#companyInformation{
+    height: 22rem;
+    width: 20.23rem;
+    background-color: rgb(255, 255, 255);
+}
+
+#CompanyName{
+    display: flex;
+width: 24.77138rem;
+height: 1.49306rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #000;
+font-family: Lato;
+font-size: 1.24425rem;
+font-style: normal;
+font-weight: 700;
+line-height: 1.49306rem; /* 120% */
+text-transform: uppercase;
+}
+
+#companyInformation h3{
+    display: flex;
+width: 6.5185rem;
+height: 1.64519rem;
+flex-direction: column;
+justify-content: center;
+margin-top: 2.13rem;
+flex-shrink: 0;
+color: #000;
+font-family: Roboto;
+font-size: 0.96775rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.64519rem; /* 170% */
+text-transform: uppercase;
+}
+
+#companyInformation h2{
+    display: flex;
+width: 17.71463rem;
+height: 2.4885rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #1ABA1A;
+font-family: Roboto;
+font-size: 2.07375rem;
+font-style: normal;
+font-weight: 700;
+line-height: 2.4885rem; /* 120% */
+}
+
+#address{
+    display: flex;
+width: 19rem;
+height: 3.29031rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #000;
+font-family: Lato;
+font-size: 0.96775rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.64519rem; 
+margin-top: 2.01rem;
+}
+
+#CompanyEmail{
+    display: flex;
+width: 13.30331rem;
+height: 1.45163rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #000;
+font-family: Roboto;
+font-size: 0.96775rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.45163rem;
+}
+
+#contactIcons{
+    display: flex;
+    width: 19rem;
+    height: 2.5rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.76rem;
+}
+
+.contactIcon{
+    display: flex;
+width: 2.41938rem;
+height: 2.41938rem;
+padding: 0.69125rem 0.70075rem 0.76038rem 0.72581rem;
+justify-content: center;
+align-items: center;
+flex-shrink: 0;
+border-radius: 1.20969rem;
+background: #E1E3EB;
+}
+
+#topCategories{
+    height: 22rem;
+    width: 11.02rem;
+    background-color: rgb(255, 255, 255);
+}
+
+#topCategories h1{
+    display: flex;
+width: 11.01519rem;
+height: 1.49306rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #000;
+font-family: Lato;
+font-size: 1.24425rem;
+font-style: normal;
+font-weight: 700;
+line-height: 1.49306rem; /* 120% */
+text-transform: uppercase;
+}
+
+#topCateogry{
+    display: flex;
+width: 7.53381rem;
+height: 18.29031rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #666;
+font-family: Roboto;
+font-size: 0.96775rem;
+font-style: normal;
+font-weight: 400;
+line-height: 2.03225rem; 
+text-transform: capitalize;
+margin-top: 2.13rem;
+}
+
+#company{
+    height: 22rem;
+    width: 6.5rem;
+    background-color: rgb(255, 255, 255);
+}
+
+#company h1{
+    display: flex;
+width: 6.50406rem;
+height: 1.49306rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #000;
+font-family: Lato;
+font-size: 1.24425rem;
+font-style: normal;
+font-weight: 700;
+line-height: 1.49306rem; /* 120% */
+text-transform: uppercase;
+}
+
+#companyLinks{
+    display: flex;
+width: 7.18894rem;
+height: 7.11981rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #666;
+font-family: Roboto;
+font-size: 0.96775rem;
+font-style: normal;
+font-weight: 400;
+line-height: 2.03225rem; /* 210% */
+text-transform: capitalize;
+margin-top: 2.13rem;
+}
+
+#FAQs{
+    height: 22rem;
+    width: 24.61rem;
+    background-color: rgb(255, 255, 255);
+}
+
+#FAQs h1{
+    display: flex;
+width: 8.78475rem;
+height: 1.49306rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #000;
+font-family: Lato;
+font-size: 1.24425rem;
+font-style: normal;
+font-weight: 700;
+line-height: 1.49306rem; /* 120% */
+text-transform: uppercase;
+}
+
+#FAQ{
+    display: flex;
+width: 24.60831rem;
+height: 20.59906rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #666;
+font-family: Roboto;
+font-size: 0.96775rem;
+font-style: normal;
+font-weight: 400;
+line-height: 2.03225rem; /* 210% */
+text-transform: capitalize;
+}
+
+#footerBottom{
+    width: 100%;
+    height: 5.4625rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+}
+
+#footerBottom p{
+    color: #666;
+font-family: Roboto;
+font-size: 0.96775rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.64519rem; /* 170% */
+}
+
+#footerBottom p b{
+    color: #000;
+font-family: Roboto;
+font-size: 0.96775rem;
+font-style: normal;
+font-weight: 700;
+line-height: 1.64519rem;
+}
+
+/* making footer responsive */
+
+@media screen and (max-width: 1024px){
+    #CompanyName{
+        font-size: 100%;
+    }
+
+    #companyInformation h3{
+        font-size: 90%;
+    }
+
+    #contactIcons{
+        width: 15rem;
+    }
+
+    #topCategories h1{
+        font-size: 100%;
+    }
+
+    #company h1{
+        font-size: 100%;
+    }
+
+    #FAQs h1{
+        font-size: 100%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    footer {
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    footer #footerTop{
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #companyInformation{
+        width: 100%;
+        height: 100%;
+        margin-top: 1rem;
+    }
+
+    #topCategories{
+        width: 100%;
+        height: 100%;
+        margin-top: 1rem;
+    }
+
+    #company{
+        width: 100%;
+        height: 100%;
+        margin-top: 1rem;
+    }
+
+    #FAQs{
+        width: 100%;
+        height: 100%;
+        margin-top: 1rem;
+    }
+
+    #footerBottom{
+        align-items: center;
+        justify-content: center;
+    }
+
+    #footerBottom p{
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 426px){
+    footer {
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #CompanyName{
+        width: 90%;
+    }
+
+    #FAQ{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 426px){
+    footer {
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 320px){
+    #address{
+        width: 90%;
+    }
+}

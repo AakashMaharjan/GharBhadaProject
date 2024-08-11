@@ -13,5 +13,10 @@
         include 'components/header.php';
     ?>
     <!-- header section ends -->
+     <!-- footer section starts -->
+    <?php
+        include 'components/footer.php';
+    ?>
+    <!-- footer section ends -->
 </body>
 </html>
