@@ -13,10 +13,23 @@
         include 'components/header.php';
     ?>
     <!-- header section ends -->
+     <!-- main section starts -->
+     <!-- main section starts -->
+      <main>
+        <!-- recent posts section starts -->
+         <?php
+            include 'components/recentposts.php';
+        ?>
+        <!-- recent posts section ends -->
+      </main>
+      <!-- main section ends -->
+      <!-- main section ends -->
      <!-- footer section starts -->
     <?php
         include 'components/footer.php';
     ?>
     <!-- footer section ends -->
+     <!-- js from here -->
+     <script src="js/custom.js"></script>
 </body>
 </html>
