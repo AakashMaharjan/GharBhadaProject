@@ -18,5 +18,6 @@
         include 'components/footer.php';
     ?>
     <!-- footer section ends -->
+     <h1>hello</h1>
 </body>
 </html>
