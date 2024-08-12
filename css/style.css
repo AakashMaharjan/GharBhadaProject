@@ -1141,3 +1141,600 @@ line-height: 1.41013rem;
 
 
 /* recent posts css ends*/
+
+/* All posts and featured starts */
+
+/* All Posts starts */
+#allPostsAndFeaturedMain {
+    width: 100%;
+    height: auto;
+flex-shrink: 0;
+background: white;
+display: flex;
+}
+
+#AllPosts{
+    width: 56.4%;
+    height: 80rem;
+    background-color: white;
+}
+
+
+#AllPostsTitle {
+    height: 6.36rem;
+    width: 100%;
+    color: #000;
+    font-family: Montserrat;
+    font-size: 1.24425rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.86638rem; 
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    padding-left: 2.07rem;
+    background-color: white;
+}
+
+#AllPostsBox
+{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    overflow-y: auto; 
+    scrollbar-color: #1ABA1A #f1f1f1; /* Blue scrollbar with light background */
+    scrollbar-width: thin;
+}
+
+#AllPostsBox::-webkit-scrollbar-thumb {
+    background-color: #001600 !important;
+    border-radius: 6px !important;
+}
+
+#AllPost{
+    width: 44.79263rem;
+height: 15.41475rem;
+flex-shrink: 0;
+border-radius: 0.69125rem;
+background: rgba(231, 231, 231, 0.28);
+display: flex;
+}
+
+#AllPostImg{
+    width: 12.788rem;
+height: 12.02763rem;
+flex-shrink: 0;
+padding: 1rem;
+}
+
+#AllPostsTitle{
+    height: 5.32rem;
+    width: 100%;
+    color: #000;
+    font-family: Montserrat;
+    font-size: 1.24425rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.86638rem; 
+    text-transform: uppercase;
+    display: flex;
+    align-items: flex-end; 
+    padding-left: 2.07rem;
+    background-color: white;
+}
+
+#AllPostsBox{
+    padding-top: 2rem;
+}
+
+#AllPostTitle{
+    color: #000;
+font-family: Lato;
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 700;
+line-height: 1.16131rem; /* 92.903% */
+padding: 0.5rem;
+}
+
+#AllPostDescription{
+    width: 90%;
+color: #000;
+font-family: Roboto;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.41013rem; /* 161.159% */
+padding-left: 0.5rem;
+}
+
+#AllPostPrice{
+    color: #000;
+font-family: Montserrat;
+font-size: 1.24425rem;
+font-style: normal;
+font-weight: 600;
+line-height: 1.49306rem; /* 120% */
+padding: 1rem;
+padding-left: 0.5rem;
+}
+
+#AllPostType{
+    display: flex;
+    width: 44%;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0.5rem;
+}
+
+#AllPostLocation{
+    width: 5.46081rem;
+    height: 1.48113rem;
+    flex-shrink: 0;
+    border-radius: 0.41475rem;
+    background: rgba(26, 186, 26, 0.2); 
+    color: #1ABA1A;
+    font-family: Roboto;
+    font-size: 0.69125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.03688rem; /* 150% */
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#AllPostRoomType{
+    width: 4.99288rem;
+    height: 1.48113rem;
+    flex-shrink: 0;
+    border-radius: 0.41475rem;
+    background: rgba(241, 53, 43, 0.2);
+    color: #F1352B;
+    font-family: Roboto;
+    font-size: 0.69125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.03688rem; /* 150% */
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#AllPostPhoneNumber{
+    display: flex;
+    margin-top: 1.32rem;
+    flex-direction: row;
+    width: 100%;
+    margin-left: 0.5rem;
+}
+
+#AllPostPhoneIcon{
+    width: 1.52075rem;
+    height: 1.31338rem;
+    margin-top: 0;
+}
+
+#AllPostPhoneNumber p{
+    color: #000;
+    font-family: Lato;
+    font-size: 0.8295rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.41013rem; 
+}
+
+/* making All Posts responsive */
+
+@media screen and (max-width: 1025px){
+    #allPostsAndFeaturedMain{
+        flex-direction: column;
+    }
+
+    #AllPosts{
+        width: 100%;
+    }
+    
+    #FeaturedAndBestDeals {
+        width: 100%;
+        order: -1;
+      }
+}
+
+@media screen and (max-width: 426px){
+    #AllPost{
+        flex-direction: column;
+        width: 100%;
+        height: 26rem;
+        align-items: center;
+    }
+}
+
+/* All Posts ends */
+
+/* Featured and Best Deals starts */
+
+/* Featured starts */
+
+#FeaturedAndBestDeals{
+    width: 43.6%;
+    height: 100%;
+    background-color: white;
+}
+
+
+.FeaturedAndBestDealsSlides{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    background: #ffffff;
+    width: 100%;
+    height: 34.5rem;
+}
+
+#leftButton1{
+    width: 2.765rem;
+    height: 5.52994rem;
+    flex-shrink: 0;
+    background-color: #EDEFF6;
+}
+
+.FeaturedSlidesContainer{
+    max-width: 40rem; 
+    overflow: hidden;
+}
+
+.FeaturedSlider{
+    height: auto;
+    /* background: grey; */
+    width: 30.9rem;
+    margin: 2.5em 0em;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.FeaturedSlide{
+    height: 34.5rem;
+    min-width: 15.48388rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.FeaturedSlide img{
+    width: 12.788rem;
+height: 12.02763rem;
+flex-shrink: 0;
+margin-top: 3.04rem;
+  }
+
+  .FeaturedSlide h1{
+    display: flex;
+width: 12.125rem;
+height: 2.375rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #000;
+font-family: Lato;
+font-size: 1.0625rem;
+font-style: normal;
+font-weight: 700;
+line-height: 1.16131rem; 
+margin-top: 2.88rem;
+margin-right: auto;
+margin-left: 1.06rem;
+  }
+
+#price1{
+    display: flex;
+width: 10.29956rem;
+height: 1.45163rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #000;
+font-family: Montserrat;
+font-size: 1.24425rem;
+font-style: normal;
+font-weight: 650;
+line-height: 1.49306rem;
+margin-top: 1.03rem;
+margin-right: auto;
+margin-left: 1.06rem;
+}
+
+#roomCardType1{
+    display: flex;
+    width: 84%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.96rem;
+}
+
+#roomCardTypeLocation1{
+    width: 5.46081rem;
+height: 1.48113rem;
+flex-shrink: 0;
+border-radius: 0.41475rem;
+background: rgba(26, 186, 26, 0.2); 
+color: #1ABA1A;
+font-family: Roboto;
+font-size: 0.69125rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.03688rem; /* 150% */
+text-transform: uppercase;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+
+
+#roomCardTypeForNumber1{
+    width: 4.99288rem;
+height: 1.48113rem;
+flex-shrink: 0;
+border-radius: 0.41475rem;
+background: rgba(241, 53, 43, 0.2);
+color: #F1352B;
+font-family: Roboto;
+font-size: 0.69125rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.03688rem; /* 150% */
+text-transform: uppercase;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+#PhoneNumberCard1{
+    display: flex;
+    margin-top: 1.32rem;
+    flex-direction: row;
+    width: 100%;
+    margin-left: 0.5rem;
+}
+
+#phoneIcon1{
+    width: 1.52075rem;
+height: 1.31338rem;
+margin-top: 0;
+}
+
+#PhoneNumberCard1 p{
+    color: #000;
+font-family: Lato;
+font-size: 0.8295rem;
+font-style: normal;
+font-weight: 700;
+line-height: 1.41013rem; 
+}
+
+#leftButton1{
+    width: 2.765rem;
+    height: 5.52994rem;
+    flex-shrink: 0;
+    background-color: #EDEFF6;
+}
+
+#rightButton1{
+    width: 2.765rem;
+    height: 5.52994rem;
+    flex-shrink: 0;
+    background-color: #EDEFF6;
+}
+
+/* Featured ends */
+
+/* Best Deal starts */
+
+.FeaturedAndBestDealsSlides2{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    background: #ffffff;
+    width: 100%;
+    height: 34.5rem;
+}
+
+#leftButton2{
+    width: 2.765rem;
+    height: 5.52994rem;
+    flex-shrink: 0;
+    background-color: #EDEFF6;
+}
+
+.FeaturedSlidesContainer2{
+    max-width: 40rem; 
+    overflow: hidden;
+}
+
+.FeaturedSlider2{
+    height: auto;
+    /* background: grey; */
+    width: 30.9rem;
+    margin: 2.5em 0em;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.FeaturedSlider2{
+    height: auto;
+    /* background: grey; */
+    width: 30.9rem;
+    margin: 2.5em 0em;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.FeaturedSlide2{
+    height: 34.5rem;
+    min-width: 15.48388rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.FeaturedSlide2 img{
+    width: 12.788rem;
+height: 12.02763rem;
+flex-shrink: 0;
+margin-top: 3.04rem;
+  }
+
+  .FeaturedSlide2 h1{
+    display: flex;
+width: 12.125rem;
+height: 2.375rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #000;
+font-family: Lato;
+font-size: 1.0625rem;
+font-style: normal;
+font-weight: 700;
+line-height: 1.16131rem; 
+margin-top: 2.88rem;
+margin-right: auto;
+margin-left: 1.06rem;
+  }
+
+#price2{
+    display: flex;
+width: 10.29956rem;
+height: 1.45163rem;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #000;
+font-family: Montserrat;
+font-size: 1.24425rem;
+font-style: normal;
+font-weight: 650;
+line-height: 1.49306rem;
+margin-top: 1.03rem;
+margin-right: auto;
+margin-left: 1.06rem;
+}
+
+#roomCardType2{
+    display: flex;
+    width: 84%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.96rem;
+}
+
+#roomCardTypeLocation2{
+    width: 5.46081rem;
+height: 1.48113rem;
+flex-shrink: 0;
+border-radius: 0.41475rem;
+background: rgba(26, 186, 26, 0.2); 
+color: #1ABA1A;
+font-family: Roboto;
+font-size: 0.69125rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.03688rem; /* 150% */
+text-transform: uppercase;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+
+
+#roomCardTypeForNumber2{
+    width: 4.99288rem;
+height: 1.48113rem;
+flex-shrink: 0;
+border-radius: 0.41475rem;
+background: rgba(241, 53, 43, 0.2);
+color: #F1352B;
+font-family: Roboto;
+font-size: 0.69125rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.03688rem; /* 150% */
+text-transform: uppercase;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+#PhoneNumberCard2{
+    display: flex;
+    margin-top: 1.32rem;
+    flex-direction: row;
+    width: 100%;
+    margin-left: 0.5rem;
+}
+
+#phoneIcon2{
+    width: 1.52075rem;
+height: 1.31338rem;
+margin-top: 0;
+}
+
+#PhoneNumberCard2 p{
+    color: #000;
+font-family: Lato;
+font-size: 0.8295rem;
+font-style: normal;
+font-weight: 700;
+line-height: 1.41013rem; 
+}
+
+#rightButton2{
+    width: 2.765rem;
+    height: 5.52994rem;
+    flex-shrink: 0;
+    background-color: #EDEFF6;
+}
+
+/* making featured and best deals responsive */
+
+@media screen and (max-width: 1025px){
+    #FeaturedAndBestDeals {
+        width: 100%;
+        order: -1;
+      }
+}
+
+@media screen and (max-width: 426px){
+    .FeaturedSlidesContainer{
+        max-width: 15rem; 
+        overflow: hidden;
+    }
+
+    .FeaturedSlidesContainer2{
+        max-width: 15rem; 
+        overflow: hidden;
+    }
+}
+
+
+#FeaturedAndBestDeal {
+    width: 100%;
+    height: 100%;
+    background-color: white; /* Optional: to ensure the element's background covers content underneath */
+    z-index: 1000; /* Optional: to ensure the element stays on top of other content */
+}

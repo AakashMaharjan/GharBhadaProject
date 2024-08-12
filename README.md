@@ -24,3 +24,6 @@ The fonts used are Lato and Roboto.
 footer component created and made responsive
 
 recent posts section created and made responsive
+
+### August 12
+homepage created and made responsive

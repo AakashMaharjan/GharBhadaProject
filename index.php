@@ -21,6 +21,11 @@
             include 'components/recentposts.php';
         ?>
         <!-- recent posts section ends -->
+         <!-- all posts and featured php starts -->
+          <?php
+            include 'components/AllPostsAndFeatured.php';
+        ?>
+         <!-- all posts and featured php end -->
       </main>
       <!-- main section ends -->
       <!-- main section ends -->
