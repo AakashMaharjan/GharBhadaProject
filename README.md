@@ -27,3 +27,6 @@ recent posts section created and made responsive
 
 ### August 12
 homepage created and made responsive
+
+### August 13
+Login, Register and Search Pages created and made responsive

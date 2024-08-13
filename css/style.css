@@ -223,6 +223,14 @@ flex-direction: column;
 color: #000;
 }
 
+.loginText a {
+    text-decoration: none;
+}
+
+.registerText a{
+    text-decoration: none;
+}
+
 .loginAndRegister{
     display: flex;
 }

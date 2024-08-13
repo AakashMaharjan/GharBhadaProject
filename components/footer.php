@@ -9,11 +9,11 @@
         Nepal</p>
         <p id="CompanyEmail">contact@gharbhada.com</p>
         <div id="contactIcons">
-            <div class="contactIcon"><img src="images/footer/twitter.svg" alt="twitter"></div>
-            <div class="contactIcon"><img src="images/footer/facebook.svg" alt="facebook"></div>
-            <div class="contactIcon"><img src="images/footer/instagram.svg" alt="instagram"></div>
-            <div class="contactIcon"><img src="images/footer/youtube.svg" alt="youtube"></div>
-            <div class="contactIcon"><img src="images/footer/pintrest.svg" alt="pintrest"></div>
+            <div class="contactIcon"><img src="../images/footer/twitter.svg" alt="twitter"></div>
+            <div class="contactIcon"><img src="../images/footer/facebook.svg" alt="facebook"></div>
+            <div class="contactIcon"><img src="../images/footer/instagram.svg" alt="instagram"></div>
+            <div class="contactIcon"><img src="../images/footer/youtube.svg" alt="youtube"></div>
+            <div class="contactIcon"><img src="../images/footer/pintrest.svg" alt="pintrest"></div>
         </div>
     </div>
     <div id="topCategories">
