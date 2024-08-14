@@ -27,6 +27,13 @@ switch ($route) {
             exit(); // Ensure no further code is executed after redirection
         }
         break;
+    case 'postanadvertisement':
+        if (isset($_GET['route']) && $_GET['route'] === 'postanadvertisement') {
+            // Redirect to login.php
+            header("Location: components/PostAnAdvertisement.php");
+            exit(); // Ensure no further code is executed after redirection
+        }
+        break;
     default:
         include 'index.php'; // Default to home page or 404
         break;

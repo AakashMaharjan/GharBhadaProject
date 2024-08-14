@@ -15,7 +15,7 @@
                 </div>
                 </div>
                 <div class="postAndProfile">
-                <div class="postAnAdvertisement">Post an Advertisement</div>
+                <div class="postAnAdvertisement"><a href="../router.php?route=postanadvertisement">Post an Advertisement</a></div>
                 <div id="marginLine"></div>
                 <div class="myProfile">
                     <img src="../images/contactMenu/ProfileImage.svg" alt="" class="profileImage">

@@ -1746,3 +1746,8 @@ line-height: 1.41013rem;
     background-color: white; /* Optional: to ensure the element's background covers content underneath */
     z-index: 1000; /* Optional: to ensure the element stays on top of other content */
 }
+
+.postAnAdvertisement a{
+    text-decoration: none;
+    color: black;
+}
