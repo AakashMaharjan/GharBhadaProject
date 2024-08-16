@@ -34,6 +34,34 @@ switch ($route) {
             exit(); // Ensure no further code is executed after redirection
         }
         break;
+    case 'MyProfile':
+        if (isset($_GET['route']) && $_GET['route'] === 'MyProfile') {
+            // Redirect to login.php
+            header("Location: components/MyProfile.php");
+            exit(); // Ensure no further code is executed after redirection
+        }
+        break;
+    case 'MyAdvertisements':
+        if (isset($_GET['route']) && $_GET['route'] === 'MyAdvertisements') {
+            // Redirect to login.php
+            header("Location: components/MyAdvertisements.php");
+            exit(); // Ensure no further code is executed after redirection
+        }
+        break;
+    case 'DashBoard':
+        if (isset($_GET['route']) && $_GET['route'] === 'DashBoard') {
+            // Redirect to login.php
+            header("Location: components/Dashboard.php");
+            exit(); // Ensure no further code is executed after redirection
+        }
+        break;
+    case 'Featured':
+        if (isset($_GET['route']) && $_GET['route'] === 'Featured') {
+            // Redirect to login.php
+            header("Location: components/Featured.php");
+            exit(); // Ensure no further code is executed after redirection
+        }
+        break;
     default:
         include 'index.php'; // Default to home page or 404
         break;

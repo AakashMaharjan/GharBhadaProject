@@ -30,3 +30,8 @@ homepage created and made responsive
 
 ### August 13
 Login, Register and Search Pages created and made responsive
+
+### August 16
+Post an advertisement created and made responsive
+My profile created and made responsive
+Admin dashboard created and made responsive

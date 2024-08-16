@@ -97,22 +97,24 @@
             </div>
         </div>
         <div class="formGroupLarge">
-            <div class="formGroup">
+            <div class="formGroup" id="image1box">
                 <label for="name">Image 1 <b>*</b></label><br>
-                <input type="file" id="image1" name="image1" required>
+                <input type="file" id="image1" name="image1" required><label for="image1" id="ChooseFile">Choose file</label>
             </div>
             <div class="formGroup">
                 <label for="name">Image 2 <b>*</b></label><br>
-                <input type="file" id="image2" name="image2" required>
+                <input type="file" id="image2" name="image2" required><label for="image2" id="ChooseFile">Choose file</label>
             </div>
             <div class="formGroup">
                 <label for="name">Image 3 <b>*</b></label><br>
-                <input type="file" id="image3" name="image3" required>
+                <input type="file" id="image3" name="image3" required><label for="image3" id="ChooseFile">Choose file</label>
+            </div>
+            </div>
             </div>
         </div>
-        <div class="formGroupLarge">
-            <div class="formGroup">
-                <label for="name">Description <b>*</b></label><br>
+        <div class="formGroupLarge" id="DescriptionBox">
+            <div class="formGroup>
+                <label for="name">Description <b>*</b></label><br><br>
                 <textarea name="description" id="description" placeholder="Room features, requirements, etc." required></textarea>
             </div>
         </div>

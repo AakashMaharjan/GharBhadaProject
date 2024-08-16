@@ -19,7 +19,7 @@
                 <div id="marginLine"></div>
                 <div class="myProfile">
                     <img src="../images/contactMenu/ProfileImage.svg" alt="" class="profileImage">
-                    <p class="myProfileText">My Profile</p>
+                    <p class="myProfileText"><a href="../router.php?route=MyProfile">My Profile</a></p>
                 </div>
                 </div>
             </div>
