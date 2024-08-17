@@ -101,7 +101,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/components/MyAdvertisements.php') !== fals
             <p id="PostId">1</p>
             <p id="PostName">1BHK flat</p>
             <div id="PostActions">
-              <button id="BoostPost">Boost Post</button>
+              <button id="BoostPost" onclick="PaymentForBoost(event)">Boost Post</button>
               <button id="EditPost">Edit</button>
               <button id="DeletePost">Delete</button>
             </div>
@@ -120,8 +120,25 @@ if (strpos($_SERVER['REQUEST_URI'], '/components/MyAdvertisements.php') !== fals
     </section>
     <!-- My Profile section ends -->
 
+    <div id="PaymentInfo">
+      <h1>Payment Info</h1>
+      <p>Pay using Esewa</p>
+      <img src="../images/RecentPosts/roomImage1.png" alt="">
+      <form action="">
+        <label for="PostID">Post Id</label>
+        <input type="text" id="PostID" name="PostID" placeholder="Post ID">
+        <label for="PostName">Post Name</label>
+        <input type="text" id="PostName" name="PostName" placeholder="Post Name">
+        <label for="PayUsingEsewaMethod" id="PaymentScreenShotPicture">Upload Transaction Screenshot</label>
+        <input type="file" id="PayUsingEsewaMethod" name="PayUsingEsewaMethod">
+        <button onclick="PaymentMade()">Submit</button>
+      </form>
+    </div>
+
     <?php
         include 'footer.php';
     ?>
+
+    <script src="../js/custom.js"></script>
   </body>
 </html>

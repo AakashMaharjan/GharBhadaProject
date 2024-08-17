@@ -20,7 +20,7 @@
             <p id="pageLocationText">Home <i>/</i> <b>Search</b></p>
         </div>
         <div id="SearchPostBox">
-            <div id="AllPost">
+            <a href="../router.php?route=SinglePost" id="searchPost"> <div id="AllPost">
                 <img src="../images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
                 <div id="AllPostInformation">
                     <h1 id="AllPostTitle">1BHK Available for Rent</h1>
@@ -35,7 +35,7 @@
                         <p id="AllPostNumber">9838495867</p>
                     </div>
                 </div>
-            </div>
+            </div></a>
             <div id="AllPost">
                 <img src="../images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
                 <div id="AllPostInformation">

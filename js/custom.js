@@ -154,3 +154,24 @@ function slide2() {
 window.addEventListener("resize", slide2); // Adjust slide on window resize
 
     
+function PaymentForBoost(event) {
+    event.stopPropagation(); // Prevent the click event from bubbling up
+
+    let paymentInfo = document.getElementById("PaymentInfo");
+    paymentInfo.style.display = "flex";
+
+    function handleClickOutside(event) {
+        if (!paymentInfo.contains(event.target)) {
+            paymentInfo.style.display = "none";
+            document.removeEventListener("click", handleClickOutside);
+        }
+    }
+
+    document.addEventListener("click", handleClickOutside);
+}
+
+function PaymentMade(){
+    let paymentInfo = document.getElementById("PaymentInfo");
+    paymentInfo.style.display = "none";
+    alert("Payment Successful!");
+}

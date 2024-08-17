@@ -35,3 +35,7 @@ Login, Register and Search Pages created and made responsive
 Post an advertisement created and made responsive
 My profile created and made responsive
 Admin dashboard created and made responsive
+
+
+### August 17
+Single Post created and made responsive

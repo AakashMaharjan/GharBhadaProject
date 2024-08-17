@@ -62,6 +62,13 @@ switch ($route) {
             exit(); // Ensure no further code is executed after redirection
         }
         break;
+    case 'SinglePost':
+        if (isset($_GET['route']) && $_GET['route'] === 'SinglePost') {
+            // Redirect to login.php
+            header("Location: components/SinglePost.php");
+            exit(); // Ensure no further code is executed after redirection
+        }
+        break;
     default:
         include 'index.php'; // Default to home page or 404
         break;

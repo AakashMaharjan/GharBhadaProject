@@ -185,6 +185,11 @@ padding-left: 0.5rem;
     line-height: 1.41013rem; 
 }
 
+#searchPost{
+    text-decoration: none;
+    color: black;
+}
+
 /* making All Posts responsive */
 
 @media screen and (max-width: 1025px){
