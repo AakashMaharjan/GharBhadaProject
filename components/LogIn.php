@@ -1,12 +1,3 @@
-<?php
-// Check if 'route' parameter is set and its value
-if (isset($_GET['route']) && $_GET['route'] === 'login') {
-    // Redirect to login.php
-    header("Location: Login.php");
-    exit(); // Ensure no further code is executed after redirection
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +11,7 @@ if (isset($_GET['route']) && $_GET['route'] === 'login') {
 <body>
     <?php
         include 'header.php';
+        session_start();
     ?>
 
     <!-- log in section starts -->
@@ -30,13 +22,17 @@ if (isset($_GET['route']) && $_GET['route'] === 'login') {
         <div id="loginMain">
             <img src="../images/loginAndRegistration/login.svg" alt="">
             <div id="loginForm">
-                <form action="">
+                <form action="../Controllers/LoginAndRegistrationController.php?action=login" method="POST">
                     <h1 id="WelcomeBack">Welcome Back</h1>
                     <p id="loginToContinue">login to continue</p>
-                    <label for="email" class="loginLabel">Email Address</label>
-                    <input type="text" placeholder="Example@gmail.com">
-                    <label for="password" class="loginLabel">Password</label>
-                    <input type="password" placeholder="...">
+                    <label for="email" class="loginLabel"> Email Address 
+    <?php if(isset($_SESSION['EmailError'])) { echo '<span style="color:red;">'.$_SESSION['EmailError'].'</span>'; unset($_SESSION['EmailError']); } ?>
+</label>
+                    <input type="text" placeholder="Example@gmail.com" name="email">
+                    <label for="password" class="loginLabel">Password
+    <?php if(isset($_SESSION['passwordError'])) { echo '<span style="color:red;">'.$_SESSION['passwordError'].'</span>'; unset($_SESSION['passwordError']); } ?>
+</label>
+                    <input type="password" placeholder="..." name="password">
                     <button>login</button>
                     <p id="SignUpHere">new user ? <b><a href="">Sign Up</a></b></p>
                 </form>

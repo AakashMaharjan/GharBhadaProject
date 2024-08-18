@@ -1,12 +1,3 @@
-<?php
-// Check if 'route' parameter is set and its value
-if (isset($_GET['route']) && $_GET['route'] === 'register') {
-    // Redirect to login.php
-    header("Location: Register.php");
-    exit(); // Ensure no further code is executed after redirection
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +8,37 @@ if (isset($_GET['route']) && $_GET['route'] === 'register') {
     <link rel="stylesheet" href="../css/login.css">
     <title>Register</title>
 </head>
+<style>
+    #EnterNameError{
+        color: red;
+        display: none;
+    }
+
+    #EnterEmailError{
+        color: red;
+        display: none;
+    }
+
+    #EnterPhoneNumberError{
+        color: red;
+        display: none;
+    }
+
+    #EnterPasswordError{
+        color: red;
+        display: none;
+    }
+
+    #PasswordDoNotMatch{
+        color: red;
+        display: none;
+    }
+
+    #PhoneNumber10{
+        color: red;
+        display: none;
+    }
+</style>
 <body>
     <?php
         include 'header.php';
@@ -30,20 +52,20 @@ if (isset($_GET['route']) && $_GET['route'] === 'register') {
         <div id="RegisterMain">
             <img src="../images/loginAndRegistration/login.svg" alt="">
             <div id="loginForm">
-                <form action="">
+                <form action="../Controllers/LoginAndRegistrationController.php?action=register" method="POST" onsubmit="ValidateRegisterForm(event)">
                     <h1 id="WelcomeBack">Register</h1>
                     <p id="loginToContinue">Join to us</p>
-                    <label for="Name" class="loginLabel">Your name</label>
-                    <input type="text" placeholder="Ram Laxman">
-                    <label for="email" class="loginLabel">Email Address</label>
-                    <input type="text" placeholder="Example@gmail.com">
-                    <label for="phone number" class="loginLabel">Phone Number</label>
-                    <input type="text" placeholder="98*******">
-                    <label for="password" class="loginLabel">Password</label>
-                    <input type="password" placeholder="...">
-                    <label for="confirm password" class="loginLabel">Confirm Password</label>
-                    <input type="password" placeholder="...">
-                    <button>login</button>
+                    <label for="Name" class="loginLabel">Your name <span id="EnterNameError">Please Enter Name</span></label>
+                    <input type="text" placeholder="Ram Laxman" name="name">
+                    <label for="email" class="loginLabel">Email Address<span id="EnterEmailError">Please Enter Email</span></label>
+                    <input type="email" placeholder="Example@gmail.com" name="email">
+                    <label for="phone number" class="loginLabel">Phone Number<span id="EnterPhoneNumberError">Please Enter Phone Number</span><span id="PhoneNumber10">Phone number should be 10</span></label>
+                    <input type="text" placeholder="98*******" name="phone">
+                    <label for="password" class="loginLabel">Password<span id="EnterPasswordError">Please Enter Password</span></label>
+                    <input type="password" placeholder="..." name="password">
+                    <label for="confirm password" class="loginLabel">Confirm Password<span id="PasswordDoNotMatch">Password do not match</span></label>
+                    <input type="password" placeholder="..." name="confirm_password">
+                    <button type="submit">Register</button>     
                     <p id="SignUpHere">already user ? <b><a href="">Login</a></b></p>
                 </form>
             </div>
@@ -54,5 +76,63 @@ if (isset($_GET['route']) && $_GET['route'] === 'register') {
     <?php
         include 'footer.php';
     ?>
+
+    <script>
+        function ValidateRegisterForm(event) {
+            let isValid = true;
+
+            const name = document.querySelector("input[name='name']").value;
+            const email = document.querySelector("input[name='email']").value;
+            const phone = document.querySelector("input[name='phone']").value;
+            const password = document.querySelector("input[name='password']").value;
+            const confirmPassword = document.querySelector("input[name='confirm_password']").value;
+
+            if (name === "") {
+                document.getElementById("EnterNameError").style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById("EnterNameError").style.display = "none";
+            }
+
+            if (email === "") {
+                document.getElementById("EnterEmailError").style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById("EnterEmailError").style.display = "none";
+            }
+
+            if (phone === "") {
+                document.getElementById("EnterPhoneNumberError").style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById("EnterPhoneNumberError").style.display = "none";
+            }
+
+            if(phone.length !== 10){
+                document.getElementById("PhoneNumber10").style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById("PhoneNumber10").style.display = "none";
+            }
+
+            if (password === "") {
+                document.getElementById("EnterPasswordError").style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById("EnterPasswordError").style.display = "none";
+            }
+
+            if (password !== confirmPassword) {
+                document.getElementById("PasswordDoNotMatch").style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById("PasswordDoNotMatch").style.display = "none";
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        };
+    </script>
 </body>
 </html>

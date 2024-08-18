@@ -27,7 +27,34 @@ if (strpos($_SERVER['REQUEST_URI'], '/components/MyAdvertisements.php') !== fals
     $text_color = 'black';
     $arrowColor = 'blackArrow.svg';
 }
+
+session_start(); 
+
+
+if (!isset($_SESSION['user'])) {
+    header('Location: ../components/Login.php');
+    exit();
+}
+
+$user = $_SESSION['user'];
+$name = $user['name']; 
+$email = $user['email'];
+$phoneNumber = $user['phone'];
+
+$nameParts = explode(' ', $name);
+
+// Check if we have at least two parts (first and last name)
+if (count($nameParts) >= 2) {
+    $firstName = $nameParts[0];
+    $lastName = $nameParts[1];
+} else {
+    // Handle cases where the name might not be in "First Last" format
+    $firstName = $name;
+    $lastName = ''; // or some default value
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,8 +78,8 @@ if (strpos($_SERVER['REQUEST_URI'], '/components/MyAdvertisements.php') !== fals
         <div id="ProfileBox">
             <div id="ProfileInfo">
                 <img src="../images/MyProfile/MyProfile.svg" alt="" id="ProfileImage">
-                <h1>Mark Cole</h1>
-                <p>markCole@gmail.com</p>
+                <h1><?php echo ($name); ?></h1>
+                <p><?php echo ($email); ?></p>
                 <div class="MyAccount" style="background-color: <?php echo $background_color_profile;?>; color: <?php echo $text_colorInfo;?> ">
     <a href="../router.php?route=MyProfile" style="text-decoration: none; color: <?php echo $text_colorInfo;?>">My Profile</a> <img src="../images/MyProfile/<?php echo $arrowColorInfo ?>" alt="" id="arrowProfile">
 </div>
@@ -62,29 +89,30 @@ if (strpos($_SERVER['REQUEST_URI'], '/components/MyAdvertisements.php') !== fals
             </div>
             <div id="ProfileMain">
                 <h1>Account info</h1>
-                <form action="">
+                <form action="../Controllers/LoginAndRegistrationController.php?action=logout" method="POST">
                     <div class="formGroupLarge" id="formGroupName">
                         <div class="formGroup">
                             <label for="name">First Name <b>*</b></label><br>
-                            <input type="text" id="name" name="name" placeholder="Mark" required>
+                            <input type="text" id="name" name="name" placeholder="Mark" required value="<?php echo ($firstName); ?>">
                         </div>
                         <div class="formGroup">
                             <label for="name">Last Name <b>*</b></label><br>
-                            <input type="text" id="name" name="name" placeholder="Cole" required>
+                            <input type="text" id="name" name="name" placeholder="Cole" required value="<?php echo ($lastName); ?>">
                         </div>
                     </div>
                         <div class="formGroupLarge">
                             <div class="formGroup">
                                 <label for="name">Email Address <b>*</b></label><br>
-                                <input type="text" id="inputLong" name="name" placeholder="markCole@gmail.com" required>
+                                <input type="text" id="inputLong" name="name" placeholder="markCole@gmail.com" required value="<?php echo ($email); ?>">
                             </div>
                         </div>
                         <div class="formGroupLarge">
                             <div class="formGroup">
                                 <label for="name">Phone Number<b>*</b></label><br>
-                                <input type="text" id="inputLong" name="name" placeholder="98*******" required>
+                                <input type="text" id="inputLong" name="name" placeholder="98*******" required value="<?php echo ($phoneNumber); ?>">
                             </div>
                         </div>
+                        <button id="Logout">Logout</button>
                     </form>
             </div>
         </div>

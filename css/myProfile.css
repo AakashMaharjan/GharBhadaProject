@@ -553,6 +553,26 @@ text-transform: capitalize;
     border: none;
 }
 
+#Logout{
+    display: flex;
+    width: 4.875rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.40181rem;
+    border-radius: 0.24106rem;
+    background: #1ABA1A;
+    color: white;
+    text-align: center;
+    font-family: Lato;
+    font-size: 0.96431rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    margin-top: 2rem;
+}
+
 /* making My Advertisments Responsive */
 @media screen and (max-width: 1024px) {
     #ProfileInfo{

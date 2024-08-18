@@ -196,12 +196,12 @@ text-transform: uppercase;
 
 #Register{
     width: 100%;
-    height: 60.25rem;
+    height: 61.25rem;
     background-color: white;
 }
 
 #RegisterMain{
-    height: 33.19rem;
+    height: auto;
     width: 100%;
 background: white;
 display: flex;
