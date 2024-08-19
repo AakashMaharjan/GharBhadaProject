@@ -107,6 +107,12 @@ line-height: 1.41013rem; /* 161.159% */
 padding-left: 0.5rem;
 }
 
+#AllPostsBox a{
+    text-decoration: none;
+    color: black;
+}
+
+
 #AllPostPrice{
     color: #000;
 font-family: Montserrat;

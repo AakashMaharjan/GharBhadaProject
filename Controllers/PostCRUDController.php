@@ -52,4 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
     exit();
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['action'] === 'getPosts') {
+    $posts = $PostCRUDModel->getPosts();
+    echo json_encode($posts);
+    exit();
+}
+
 ?>

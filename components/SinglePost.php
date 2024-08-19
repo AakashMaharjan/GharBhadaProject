@@ -1,3 +1,26 @@
+<?php
+require_once '../Models/PostCRUDModel.php';
+require_once '../Database/DatabaseConnection.php';
+
+$PostCRUDModel = new PostCRUD($db);
+
+if (isset($_GET['post_id'])) {
+    $id = $_GET['post_id'];
+    $SinglePost = $PostCRUDModel->getSinglePost($id);
+} else {
+    // Handle the case where post_id is not provided
+    echo "No post ID provided.";
+    exit();
+}
+
+function formatDate($dateString) {
+  $date = new DateTime($dateString);
+  return $date->format('jS \of F Y');
+}
+
+// Usage
+$formattedDate = formatDate($SinglePost['created_at']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +40,7 @@
     <!-- log in section starts -->
      <section id="SinglePost">
         <div id="pageLocation">
-            <p id="pageLocationText">Home <i>/</i> <b>1BHK Room Available for Rent</b></p>
+            <p id="pageLocationText">Home <i>/</i> <b><?php echo($SinglePost['title']) ?></b></p>
         </div>
         <div id="SinglePostMain">
             <div id="SinglePostInfo">
@@ -25,17 +48,17 @@
                     <div class="container">
                         <div class="mySlides">
                       
-                          <img src="../images/SinglePost/SinglePost1.png" class="SlideMain">
+                          <img src="<?php echo($SinglePost['image1']) ?>" class="SlideMain">
                         </div>
                       
                         <div class="mySlides">
                       
-                          <img src="../images/SinglePost/SinglePost2.svg" class="SlideMain">
+                          <img src="<?php echo($SinglePost['image2']) ?>" class="SlideMain">
                         </div>
                       
                         <div class="mySlides">
                       
-                          <img src="../images/SinglePost/SinglePost3.svg" class="SlideMain">
+                          <img src="<?php echo($SinglePost['image3']) ?>" class="SlideMain">
                         </div>
                           
                           
@@ -45,45 +68,44 @@
                       
                         <div class="row">
                           <div class="column">
-                            <img class="demo cursor" src="../images/SinglePost/SinglePost1.png" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+                            <img class="demo cursor" src="<?php echo($SinglePost['image1']) ?>" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
                           </div>
                           <div class="column">
-                            <img class="demo cursor" src="../images/SinglePost/SinglePost2.svg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+                            <img class="demo cursor" src="<?php echo($SinglePost['image2']) ?>" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
                           </div>
                           <div class="column">
-                            <img class="demo cursor" src="../images/SinglePost/SinglePost3.svg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+                            <img class="demo cursor" src="<?php echo($SinglePost['image3']) ?>" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
                           </div>
                         </div>
                       </div>
                 </div>
                 <div id="SinglePostSpec">
-                    <h1 id="SinglePostTitle">1BHK Room Available for Rent</h1>
-                    <h2 id="SinglePostPrice">Rs.10,000/mo.</h2>
+                    <h1 id="SinglePostTitle"><?php echo($SinglePost['title']) ?></h1>
+                    <h2 id="SinglePostPrice"><?php echo number_format($SinglePost['rent']) ?>/mo.</h2>
                     <ul id="SinglePostType">
-                        <li id="Type">Type : Residential</li>
-                        <li id="Entrance">Entrance : Separate</li>
-                        <li id="Floor">Floor : Ground Floor</li>
+                        <li id="Type">Type : <?php echo($SinglePost['type']) ?></li>
+                        <li id="Entrance">Entrance : <?php echo($SinglePost['entrance']) ?></li>
+                        <li id="Floor">Floor : <?php echo($SinglePost['floor']) ?></li>
                     </ul>
                     <div id="roomCardType">
-                        <div id="roomCardTypeLocation">Baluwatar</div>
-                        <div id="roomCardTypeForNumber">For family</div>  
+                        <div id="roomCardTypeLocation"><?php echo($SinglePost['location']) ?></div>
+                        <div id="roomCardTypeForNumber">For <?php echo($SinglePost['for_whom']) ?></div>  
                       </div>
                       <div id="Specification">
                         <h1>Specifications:</h1>
-                        <p>Road Size : FiveToFourteenFt</p>
-                        <p>Furnishing : None</p>
-                        <p>Bathroom: 1</p>
-                        <p>Living Room : 1</p>
-                        <p>Bedroom : 2</p>
-                        <p>Road Type : Pitched</p>
+                        <p>Road Size : <?php echo($SinglePost['road_size']) ?></p>
+                        <p>Bathroom: <?php echo($SinglePost['restrooms']) ?></p>
+                        <p>Living Room : <?php echo($SinglePost['living_rooms']) ?></p>
+                        <p>Bedroom : <?php echo($SinglePost['bedrooms']) ?></p>
+                        <p>Created at : <?php echo($formattedDate) ?></p>
                       </div>
                 </div>
                 <div id="SinglePostContact">
                     <div id="LanlordInfo">
                         <h1>LANDLORD INFORMATION:</h1>
                         <div id="LandlordName">
-                        <p>name : ram</p>
-                        <p>phone : 982364843</p>
+                        <p>name : <?php echo($SinglePost['name']) ?></p>
+                        <p>phone : <?php echo($SinglePost['phone_number']) ?></p>
                     </div>
                     </div>
                     <div id="Note">
@@ -94,7 +116,7 @@
         </div>
         <div id="SinglePostDescription">
             <h1>description</h1>
-            <p>This spacious room is located in a modern downtown apartment, perfect for professionals or students. The room is large enough to comfortably fit a queen-sized bed, a desk, and a wardrobe, with modern furnishings and a neutral color scheme that creates a relaxing atmosphere. Residents will have access to a fully equipped kitchen, a cozy living room, and a stylish dining area, making it easy to enjoy both privacy and shared spaces. </p>
+            <p><?php echo($SinglePost['description']) ?> </p>
         </div>
     </section>
     <!-- log in section ends -->

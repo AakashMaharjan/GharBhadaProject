@@ -3,6 +3,7 @@
 
 // Get the route parameter from the URL
 $route = isset($_GET['route']) ? $_GET['route'] : ' ';
+$post_id = isset($_GET['post_id']) ? $_GET['post_id'] : '';
 
 // Routing logic
 switch ($route) {
@@ -65,7 +66,7 @@ switch ($route) {
     case 'SinglePost':
         if (isset($_GET['route']) && $_GET['route'] === 'SinglePost') {
             // Redirect to login.php
-            header("Location: components/SinglePost.php");
+            header("Location: components/SinglePost.php?post_id=" . ($post_id));
             exit(); // Ensure no further code is executed after redirection
         }
         break;

@@ -1,231 +1,36 @@
+<?php
+require_once 'Models/PostCRUDModel.php';
+require_once 'Database/DatabaseConnection.php';
+
+$PostCRUDModel = new PostCRUD($db);
+
+$AllPosts = $PostCRUDModel->getAllPosts();
+?>
+
 <section id="allPostsAndFeaturedMain">
     <div id="AllPosts">
         <p id="AllPostsTitle">All posts</p>
         <div id="AllPostsBox">
-            <div id="AllPost">
-                <img src="images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
-                <div id="AllPostInformation">
-                    <h1 id="AllPostTitle">1BHK Available for Rent</h1>
-                    <p id="AllPostDescription">The room is spacious with high ceilings and large, arched windows that let in plenty of natural light. Soft, cream-colored walls give a sense of openness and warmth. </p>
-                    <p id="AllPostPrice">Rs10,000/mo.</p>
+            <?php foreach ($AllPosts as $posts): ?>
+              <a href="../router.php?route=SinglePost&post_id=<?php echo ($posts['id']); ?>" id="searchPost">
+                <div id="AllPost">
+                  <img src="<?php echo ($posts['image1']) ?>" alt="" id="AllPostImg">
+                  <div id="AllPostInformation">
+                    <h1 id="AllPostTitle"><?php echo ($posts['title']) ?></h1>
+                    <p id="AllPostDescription"><?php echo ($posts['description']) ?></p>
+                    <p id="AllPostPrice">Rs<?php echo number_format($posts['rent']) ?>/mo.</p>
                     <div id="AllPostType">
-                        <div id="AllPostLocation">Baluwatar</div>
-                        <div id="AllPostRoomType">For family</div>
+                        <div id="AllPostLocation"><?php echo ($posts['location']) ?></div>
+                        <div id="AllPostRoomType"><?php echo ($posts['for_whom']) ?></div>
                     </div>
-                    <div id="AllPostPhoneNumber">
+                    <div id="AllPostPhoneNumber">   
                         <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="AllPostPhoneIcon">
-                        <p id="AllPostNumber">9838495867</p>
+                        <p id="AllPostNumber"><?php echo ($posts['phone_number']) ?></p>
                     </div>
+                  </div>
                 </div>
-            </div>
-            <div id="AllPost">
-                <img src="images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
-                <div id="AllPostInformation">
-                    <h1 id="AllPostTitle">1BHK Available for Rent</h1>
-                    <p id="AllPostDescription">The room is spacious with high ceilings and large, arched windows that let in plenty of natural light. Soft, cream-colored walls give a sense of openness and warmth. </p>
-                    <p id="AllPostPrice">Rs10,000/mo.</p>
-                    <div id="AllPostType">
-                        <div id="AllPostLocation">Baluwatar</div>
-                        <div id="AllPostRoomType">For family</div>
-                    </div>
-                    <div id="AllPostPhoneNumber">
-                        <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="AllPostPhoneIcon">
-                        <p id="AllPostNumber">9838495867</p>
-                    </div>
-                </div>
-            </div>
-            <div id="AllPost">
-                <img src="images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
-                <div id="AllPostInformation">
-                    <h1 id="AllPostTitle">1BHK Available for Rent</h1>
-                    <p id="AllPostDescription">The room is spacious with high ceilings and large, arched windows that let in plenty of natural light. Soft, cream-colored walls give a sense of openness and warmth. </p>
-                    <p id="AllPostPrice">Rs10,000/mo.</p>
-                    <div id="AllPostType">
-                        <div id="AllPostLocation">Baluwatar</div>
-                        <div id="AllPostRoomType">For family</div>
-                    </div>
-                    <div id="AllPostPhoneNumber">
-                        <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="AllPostPhoneIcon">
-                        <p id="AllPostNumber">9838495867</p>
-                    </div>
-                </div>
-            </div>
-            <div id="AllPost">
-                <img src="images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
-                <div id="AllPostInformation">
-                    <h1 id="AllPostTitle">1BHK Available for Rent</h1>
-                    <p id="AllPostDescription">The room is spacious with high ceilings and large, arched windows that let in plenty of natural light. Soft, cream-colored walls give a sense of openness and warmth. </p>
-                    <p id="AllPostPrice">Rs10,000/mo.</p>
-                    <div id="AllPostType">
-                        <div id="AllPostLocation">Baluwatar</div>
-                        <div id="AllPostRoomType">For family</div>
-                    </div>
-                    <div id="AllPostPhoneNumber">
-                        <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="AllPostPhoneIcon">
-                        <p id="AllPostNumber">9838495867</p>
-                    </div>
-                </div>
-            </div>
-            <div id="AllPost">
-                <img src="images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
-                <div id="AllPostInformation">
-                    <h1 id="AllPostTitle">1BHK Available for Rent</h1>
-                    <p id="AllPostDescription">The room is spacious with high ceilings and large, arched windows that let in plenty of natural light. Soft, cream-colored walls give a sense of openness and warmth. </p>
-                    <p id="AllPostPrice">Rs10,000/mo.</p>
-                    <div id="AllPostType">
-                        <div id="AllPostLocation">Baluwatar</div>
-                        <div id="AllPostRoomType">For family</div>
-                    </div>
-                    <div id="AllPostPhoneNumber">
-                        <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="AllPostPhoneIcon">
-                        <p id="AllPostNumber">9838495867</p>
-                    </div>
-                </div>
-            </div>
-            <div id="AllPost">
-                <img src="images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
-                <div id="AllPostInformation">
-                    <h1 id="AllPostTitle">1BHK Available for Rent</h1>
-                    <p id="AllPostDescription">The room is spacious with high ceilings and large, arched windows that let in plenty of natural light. Soft, cream-colored walls give a sense of openness and warmth. </p>
-                    <p id="AllPostPrice">Rs10,000/mo.</p>
-                    <div id="AllPostType">
-                        <div id="AllPostLocation">Baluwatar</div>
-                        <div id="AllPostRoomType">For family</div>
-                    </div>
-                    <div id="AllPostPhoneNumber">
-                        <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="AllPostPhoneIcon">
-                        <p id="AllPostNumber">9838495867</p>
-                    </div>
-                </div>
-            </div>
-            <div id="AllPost">
-                <img src="images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
-                <div id="AllPostInformation">
-                    <h1 id="AllPostTitle">1BHK Available for Rent</h1>
-                    <p id="AllPostDescription">The room is spacious with high ceilings and large, arched windows that let in plenty of natural light. Soft, cream-colored walls give a sense of openness and warmth. </p>
-                    <p id="AllPostPrice">Rs10,000/mo.</p>
-                    <div id="AllPostType">
-                        <div id="AllPostLocation">Baluwatar</div>
-                        <div id="AllPostRoomType">For family</div>
-                    </div>
-                    <div id="AllPostPhoneNumber">
-                        <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="AllPostPhoneIcon">
-                        <p id="AllPostNumber">9838495867</p>
-                    </div>
-                </div>
-            </div>
-            <div id="AllPost">
-                <img src="images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
-                <div id="AllPostInformation">
-                    <h1 id="AllPostTitle">1BHK Available for Rent</h1>
-                    <p id="AllPostDescription">The room is spacious with high ceilings and large, arched windows that let in plenty of natural light. Soft, cream-colored walls give a sense of openness and warmth. </p>
-                    <p id="AllPostPrice">Rs10,000/mo.</p>
-                    <div id="AllPostType">
-                        <div id="AllPostLocation">Baluwatar</div>
-                        <div id="AllPostRoomType">For family</div>
-                    </div>
-                    <div id="AllPostPhoneNumber">
-                        <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="AllPostPhoneIcon">
-                        <p id="AllPostNumber">9838495867</p>
-                    </div>
-                </div>
-            </div>
-            <div id="AllPost">
-                <img src="images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
-                <div id="AllPostInformation">
-                    <h1 id="AllPostTitle">1BHK Available for Rent</h1>
-                    <p id="AllPostDescription">The room is spacious with high ceilings and large, arched windows that let in plenty of natural light. Soft, cream-colored walls give a sense of openness and warmth. </p>
-                    <p id="AllPostPrice">Rs10,000/mo.</p>
-                    <div id="AllPostType">
-                        <div id="AllPostLocation">Baluwatar</div>
-                        <div id="AllPostRoomType">For family</div>
-                    </div>
-                    <div id="AllPostPhoneNumber">
-                        <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="AllPostPhoneIcon">
-                        <p id="AllPostNumber">9838495867</p>
-                    </div>
-                </div>
-            </div>
-            <div id="AllPost">
-                <img src="images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
-                <div id="AllPostInformation">
-                    <h1 id="AllPostTitle">1BHK Available for Rent</h1>
-                    <p id="AllPostDescription">The room is spacious with high ceilings and large, arched windows that let in plenty of natural light. Soft, cream-colored walls give a sense of openness and warmth. </p>
-                    <p id="AllPostPrice">Rs10,000/mo.</p>
-                    <div id="AllPostType">
-                        <div id="AllPostLocation">Baluwatar</div>
-                        <div id="AllPostRoomType">For family</div>
-                    </div>
-                    <div id="AllPostPhoneNumber">
-                        <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="AllPostPhoneIcon">
-                        <p id="AllPostNumber">9838495867</p>
-                    </div>
-                </div>
-            </div>
-            <div id="AllPost">
-                <img src="images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
-                <div id="AllPostInformation">
-                    <h1 id="AllPostTitle">1BHK Available for Rent</h1>
-                    <p id="AllPostDescription">The room is spacious with high ceilings and large, arched windows that let in plenty of natural light. Soft, cream-colored walls give a sense of openness and warmth. </p>
-                    <p id="AllPostPrice">Rs10,000/mo.</p>
-                    <div id="AllPostType">
-                        <div id="AllPostLocation">Baluwatar</div>
-                        <div id="AllPostRoomType">For family</div>
-                    </div>
-                    <div id="AllPostPhoneNumber">
-                        <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="AllPostPhoneIcon">
-                        <p id="AllPostNumber">9838495867</p>
-                    </div>
-                </div>
-            </div>
-            <div id="AllPost">
-                <img src="images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
-                <div id="AllPostInformation">
-                    <h1 id="AllPostTitle">1BHK Available for Rent</h1>
-                    <p id="AllPostDescription">The room is spacious with high ceilings and large, arched windows that let in plenty of natural light. Soft, cream-colored walls give a sense of openness and warmth. </p>
-                    <p id="AllPostPrice">Rs10,000/mo.</p>
-                    <div id="AllPostType">
-                        <div id="AllPostLocation">Baluwatar</div>
-                        <div id="AllPostRoomType">For family</div>
-                    </div>
-                    <div id="AllPostPhoneNumber">
-                        <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="AllPostPhoneIcon">
-                        <p id="AllPostNumber">9838495867</p>
-                    </div>
-                </div>
-            </div>
-            <div id="AllPost">
-                <img src="images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
-                <div id="AllPostInformation">
-                    <h1 id="AllPostTitle">1BHK Available for Rent</h1>
-                    <p id="AllPostDescription">The room is spacious with high ceilings and large, arched windows that let in plenty of natural light. Soft, cream-colored walls give a sense of openness and warmth. </p>
-                    <p id="AllPostPrice">Rs10,000/mo.</p>
-                    <div id="AllPostType">
-                        <div id="AllPostLocation">Baluwatar</div>
-                        <div id="AllPostRoomType">For family</div>
-                    </div>
-                    <div id="AllPostPhoneNumber">
-                        <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="AllPostPhoneIcon">
-                        <p id="AllPostNumber">9838495867</p>
-                    </div>
-                </div>
-            </div>
-            <div id="AllPost">
-                <img src="images/RecentPosts/roomImage1.png" alt="" id="AllPostImg">
-                <div id="AllPostInformation">
-                    <h1 id="AllPostTitle">1BHK Available for Rent</h1>
-                    <p id="AllPostDescription">The room is spacious with high ceilings and large, arched windows that let in plenty of natural light. Soft, cream-colored walls give a sense of openness and warmth. </p>
-                    <p id="AllPostPrice">Rs10,000/mo.</p>
-                    <div id="AllPostType">
-                        <div id="AllPostLocation">Baluwatar</div>
-                        <div id="AllPostRoomType">For family</div>
-                    </div>
-                    <div id="AllPostPhoneNumber">
-                        <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="AllPostPhoneIcon">
-                        <p id="AllPostNumber">9838495867</p>
-                    </div>
-                </div>
-            </div>
+              </a>
+            <?php endforeach; ?>
         </div>
     </div>
     <div id="FeaturedAndBestDeals">

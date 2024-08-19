@@ -1,3 +1,12 @@
+<?php
+require_once 'Models/PostCRUDModel.php';
+require_once 'Database/DatabaseConnection.php';
+
+$PostCRUDModel = new PostCRUD($db);
+
+$posts = $PostCRUDModel->getPosts();
+?>
+
 <section id="RecentPosts">
     <p id="RecentPostsTitle">Recent posts</p>
     <div class="Slides">
@@ -8,113 +17,25 @@
               </svg>
         </div>
         <div class="slidesContainer">
-          <div class="slider">
-            <div class="slide">
-              <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-              <h1>1BHK Available for Rent</h1>
-              <p id="price">Rs10,000/mo.</p>
-              <div id="roomCardType">
-                <div id="roomCardTypeLocation">Baluwatar</div>
-                <div id="roomCardTypeForNumber">For family</div>  
-              </div>
-              <div id="PhoneNumberCard">
-                <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon">
-                <p>9841234567</p>
-              </div>
+    <div class="slider">
+        <?php foreach ($posts as $post): ?>
+            <a href="../router.php?route=SinglePost&post_id=<?php echo ($post['id']); ?>" id="searchPost"> <div class="slide">
+                <img src="<?php echo ($post['image1']); ?>" alt="room image">
+                <h1><?php echo ($post['title']); ?></h1>
+                <p id="price">Rs<?php echo number_format($post['rent']); ?>/mo.</p>
+                <div id="roomCardType">
+                    <div id="roomCardTypeLocation"><?php echo ($post['location']); ?></div>
+                    <div id="roomCardTypeForNumber"><?php echo ($post['for_whom']); ?></div>
+                </div>
+                <div id="PhoneNumberCard">
+                    <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon">
+                    <p><?php echo ($post['phone_number']); ?></p>
+                </div>
             </div>
-            <div class="slide">
-              <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-              <h1>1BHK Available for Rent</h1>
-              <p id="price">Rs10,000/mo.</p>
-              <div id="roomCardType">
-                <div id="roomCardTypeLocation">Baluwatar</div>
-                <div id="roomCardTypeForNumber">For family</div>  
-              </div>
-              <div id="PhoneNumberCard">
-                <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon">
-                <p>9841234567</p>
-              </div>
-            </div>
-            <div class="slide">
-                <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-                <h1>1BHK Available for Rent</h1>
-                <p id="price">Rs10,000/mo.</p>
-                <div id="roomCardType">
-                  <div id="roomCardTypeLocation">Baluwatar</div>
-                  <div id="roomCardTypeForNumber">For family</div>  
-                </div>
-                <div id="PhoneNumberCard">
-                  <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon">
-                  <p>9841234567</p>
-                </div>
-              </div>
-              <div class="slide">
-                <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-                <h1>1BHK Available for Rent</h1>
-                <p id="price">Rs10,000/mo.</p>
-                <div id="roomCardType">
-                  <div id="roomCardTypeLocation">Baluwatar</div>
-                  <div id="roomCardTypeForNumber">For family</div>  
-                </div>
-                <div id="PhoneNumberCard">
-                  <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon">
-                  <p>9841234567</p>
-                </div>
-              </div>
-              <div class="slide">
-                <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-                <h1>1BHK Available for Rent</h1>
-                <p id="price">Rs10,000/mo.</p>
-                <div id="roomCardType">
-                  <div id="roomCardTypeLocation">Baluwatar</div>
-                  <div id="roomCardTypeForNumber">For family</div>  
-                </div>
-                <div id="PhoneNumberCard">
-                  <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon">
-                  <p>9841234567</p>
-                </div>
-              </div>
-              <div class="slide">
-                <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-                <h1>1BHK Available for Rent</h1>
-                <p id="price">Rs10,000/mo.</p>
-                <div id="roomCardType">
-                  <div id="roomCardTypeLocation">Baluwatar</div>
-                  <div id="roomCardTypeForNumber">For family</div>  
-                </div>
-                <div id="PhoneNumberCard">
-                  <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon">
-                  <p>9841234567</p>
-                </div>
-              </div>
-              <div class="slide">
-                <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-                <h1>1BHK Available for Rent</h1>
-                <p id="price">Rs10,000/mo.</p>
-                <div id="roomCardType">
-                  <div id="roomCardTypeLocation">Baluwatar</div>
-                  <div id="roomCardTypeForNumber">For family</div>  
-                </div>
-                <div id="PhoneNumberCard">
-                  <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon">
-                  <p>9841234567</p>
-                </div>
-              </div>
-              <div class="slide">
-                <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-                <h1>1BHK Available for Rent</h1>
-                <p id="price">Rs10,000/mo.</p>
-                <div id="roomCardType">
-                  <div id="roomCardTypeLocation">Baluwatar</div>
-                  <div id="roomCardTypeForNumber">For family</div>  
-                </div>
-                <div id="PhoneNumberCard">
-                  <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon">
-                  <p>9841234567</p>
-                </div>
-              </div>
-          </div>
-        </div>
+            </a>
+        <?php endforeach; ?>
+    </div>
+</div>
         <div id="rightButton" class="btn next">
             <svg xmlns="http://www.w3.org/2000/svg" width="45" height="89" viewBox="0 0 45 89" fill="none">
                 <rect x="0.308716" y="0.37793" width="44.2396" height="88.4793" rx="6.63594" fill="#EDEFF6"/>

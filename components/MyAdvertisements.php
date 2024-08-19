@@ -27,6 +27,16 @@ if (strpos($_SERVER['REQUEST_URI'], '/components/MyAdvertisements.php') !== fals
     $text_color = 'black';
     $arrowColor = 'blackArrow.svg';
 }
+
+require_once '../Models/PostCRUDModel.php';
+require_once '../Database/DatabaseConnection.php';
+
+$PostCRUDModel = new PostCRUD($db);
+session_start();
+$user = $_SESSION['user'];
+    $id = $user['id'];
+    $Posts = $PostCRUDModel->getUserPosts($id);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,24 +107,17 @@ if (strpos($_SERVER['REQUEST_URI'], '/components/MyAdvertisements.php') !== fals
               <p>Post Action</p>
             </div>
           </div>
+          <?php foreach ($Posts as $post): ?>
           <div id="AdvertisementList">
-            <p id="PostId">1</p>
-            <p id="PostName">1BHK flat</p>
+            <p id="PostId"><?php echo($post['id']) ?></p>
+            <p id="PostName"><?php echo($post['title']) ?></p>
             <div id="PostActions">
               <button id="BoostPost" onclick="PaymentForBoost(event)">Boost Post</button>
               <button id="EditPost">Edit</button>
               <button id="DeletePost">Delete</button>
             </div>
           </div>
-          <div id="AdvertisementList">
-            <p id="PostId">2</p>
-            <p id="PostName">1BHK flat</p>
-            <div id="PostActions">
-              <button id="BoostPost">Boost Post</button>
-              <button id="EditPost">Edit</button>
-              <button id="DeletePost">Delete</button>
-            </div>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </section>

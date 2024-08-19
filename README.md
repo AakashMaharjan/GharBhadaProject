@@ -83,3 +83,8 @@ Image3
 description  
 
 Demo data was manually inserted from the Post form
+
+##### CRUD Read
+The respect Models for getting posts from the database were created. The RecentPosts and AllPosts Included the Database Connection and the Model after which they get the required posts and assign them to local variables. The local variables are in array form so they are looped with foreach and data is shown in homepage.  
+
+The SinglePost gets the user_id from the session and sends that id to the model. The model responds with the array of posts which the user has created which in shown in MyAdvertisements.

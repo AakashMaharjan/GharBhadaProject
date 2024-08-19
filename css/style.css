@@ -991,6 +991,11 @@ background: white;
     align-items: center;
     transition: all 0.3s ease-in-out;
   }
+
+  .slider a{
+    text-decoration: none;
+    color: black;
+  }
   
   .slide {
     height: 34.5rem;
@@ -1155,6 +1160,12 @@ line-height: 1.41013rem;
 /* All posts and featured starts */
 
 /* All Posts starts */
+
+#AllPostsBox a{
+    text-decoration: none;
+    color: black;
+}
+
 #allPostsAndFeaturedMain {
     width: 100%;
     height: auto;
@@ -1260,6 +1271,11 @@ font-style: normal;
 font-weight: 400;
 line-height: 1.41013rem; /* 161.159% */
 padding-left: 0.5rem;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-overflow: ellipsis;
 }
 
 #AllPostPrice{

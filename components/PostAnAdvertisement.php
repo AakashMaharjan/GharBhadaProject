@@ -174,8 +174,8 @@ $id = $user['id'];
             <div class="formGroup">
                 <label for="name">For <b>*</b></label><span id="ForField">Please Enter FOr</span><br>
                 <select name="for" id="for" >
-                    <option value="residential" selected>Family</option>
-                    <option value="apartment">Single</option>
+                    <option value="Family" selected>Family</option>
+                    <option value="Single">Single</option>
                 </select>
             </div>
         </div>
