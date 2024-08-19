@@ -60,3 +60,26 @@ In login page the user enters the email and password after submit the controller
 The user can view his or her info from the My Profile and logout which lets the Controller session_destroy and redirect to homepage.  
 
 the $name is split using explode() function in My Profile for firstName and lastName
+
+### August 19  
+#### Post CRUD started to be Implement
+##### CRUD Create  
+The Post an advertisement form was create and validated using JS after submit the data is sent to PostCRUDController where the data is the data is kept on respective fields and the images are kept on file_name, tempName and folder location after that move_uploaded_file is used to upload the file to the PostImages folder in the Project folder The path to the images is saved to the database  
+
+The respective fields for Posts in database are  
+Name  
+Phone  
+Title  
+Type  
+For  
+Floor  
+bedrooms  
+livingroom  
+resttoom    
+Rent  
+Image1  
+Image2  
+Image3  
+description  
+
+Demo data was manually inserted from the Post form
