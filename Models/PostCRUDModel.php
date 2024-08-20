@@ -123,6 +123,64 @@ class PostCRUD
     
         return $posts;
     }
+
+    public function UpdatePost($name, $phoneNumber, $title, $rent, $location, $type, $floor, $entrance, $forWhom, $roadSize, $bedrooms, $livingRooms, $restrooms, $description, $id){
+        $query = "UPDATE Posts SET name = ?, phone_number = ?, title = ?, rent = ?, location = ?, type = ?, floor = ?, entrance = ?, for_whom = ?, road_size = ?, bedrooms = ?, living_rooms = ?, restrooms = ?, description = ? WHERE id = ?";
+        $stmt = $this->db->prepare($query);
+    
+        if ($stmt === false) {
+            die('Prepare failed: ' . $this->db->error);
+        }
+    
+        $stmt->bind_param('sssssssssiiiisi', $name, $phoneNumber, $title, $rent, $location, $type, $floor, $entrance, $forWhom, 
+        $roadSize, $bedrooms, $livingRooms, $restrooms, $description, $id);
+    
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            die('Execute failed: ' . $stmt->error);
+        }
+    }
+
+    public function deletePost($id){
+        $query = "SELECT image1, image2, image3 FROM Posts WHERE id = ?";
+        $stmt = $this->db->prepare($query);
+    
+        if ($stmt === false) {
+            die('Prepare failed: ' . $this->db->error);
+        }
+    
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $stmt->bind_result($image1, $image2, $image3);
+        $stmt->fetch();
+        $stmt->close();
+    
+        $images = [$image1, $image2, $image3];
+        foreach ($images as $image) {
+            if (!empty($image)) {
+                if (file_exists($image)) {
+                    unlink($image);
+                }
+            }
+        }
+
+        $query = "DELETE FROM Posts WHERE id = ?";
+        $stmt = $this->db->prepare($query);
+    
+        if ($stmt === false) {
+            die('Prepare failed: ' . $this->db->error);
+        }
+    
+        $stmt->bind_param('i', $id);
+    
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            die('Execute failed: ' . $stmt->error);
+        }
+    }
+    
     
 }
 

@@ -52,10 +52,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
     exit();
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['action'] === 'getPosts') {
-    $posts = $PostCRUDModel->getPosts();
-    echo json_encode($posts);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['action'] === 'update'){
+
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $phoneNumber = $_POST['phoneNumber'];
+    $title = $_POST['title'];
+    $rent = $_POST['rent'];
+    $location = $_POST['location'];
+    $type = $_POST['type'];
+    $floor = $_POST['floor'];
+    $entrance = $_POST['entrance'];
+    $forWhom = $_POST['for'];
+    $roadSize = $_POST['RoadSize'];
+    $bedrooms = $_POST['Bedroom'];
+    $livingRooms = $_POST['LivingRoom'];
+    $restrooms = $_POST['Restroom'];
+    $description = $_POST['description'];
+
+    $PostCRUDModel->UpdatePost($name, $phoneNumber, $title, $rent, $location, $type, $floor, $entrance, $forWhom, $roadSize, $bedrooms, $livingRooms, $restrooms, $description, $id);
+
+    header('Location: ../index.php');
     exit();
+}
+
+if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['post_id'])) {
+    $post_id = $_GET['post_id'];
+    
+    // Call the delete method from the PostCRUD class
+    $result = $PostCRUDModel->deletePost($post_id);
+
+    session_start();
+    $user=$_SESSION['user'];
+    $name=$user['name'];
+
+    if ($result) {
+        if($name === "admin"){
+            header('Location: ../router.php?route=DashBoard');
+            exit();
+        }
+        header('Location: ../router.php?route=MyAdvertisements');
+        exit();
+    }
 }
 
 ?>

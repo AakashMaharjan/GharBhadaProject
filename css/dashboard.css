@@ -193,6 +193,25 @@ height: 11.95538rem;
 flex-shrink: 0;
 }
 
+#Logout{
+    display: flex;
+    width: 3.33rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.40181rem;
+    border-radius: 0.9rem;
+    background: #1ABA1A;
+    color: white;
+    text-align: center;
+    font-family: Lato;
+    font-size: 0.96431rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+}
+
 /* making dashboard responsive */
 @media screen and (max-width: 426px) {
     #DashboardMain{

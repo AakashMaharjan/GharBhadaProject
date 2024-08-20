@@ -4,6 +4,7 @@
 // Get the route parameter from the URL
 $route = isset($_GET['route']) ? $_GET['route'] : ' ';
 $post_id = isset($_GET['post_id']) ? $_GET['post_id'] : '';
+$location = isset($_GET['location']) ? $_GET['location'] : '';
 
 // Routing logic
 switch ($route) {
@@ -24,7 +25,7 @@ switch ($route) {
     case 'search':
         if (isset($_GET['route']) && $_GET['route'] === 'search') {
             // Redirect to login.php
-            header("Location: components/SearchPosts.php");
+            header("Location: components/SearchPosts.php?location=". $location);
             exit(); // Ensure no further code is executed after redirection
         }
         break;
@@ -67,6 +68,13 @@ switch ($route) {
         if (isset($_GET['route']) && $_GET['route'] === 'SinglePost') {
             // Redirect to login.php
             header("Location: components/SinglePost.php?post_id=" . ($post_id));
+            exit(); // Ensure no further code is executed after redirection
+        }
+        break;
+    case 'UpdatePost':
+        if (isset($_GET['route']) && $_GET['route'] === 'UpdatePost') {
+            // Redirect to login.php
+            header("Location: components/UpdatePost.php?post_id=" . ($post_id));
             exit(); // Ensure no further code is executed after redirection
         }
         break;

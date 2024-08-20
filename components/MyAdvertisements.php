@@ -113,8 +113,8 @@ $user = $_SESSION['user'];
             <p id="PostName"><?php echo($post['title']) ?></p>
             <div id="PostActions">
               <button id="BoostPost" onclick="PaymentForBoost(event)">Boost Post</button>
-              <button id="EditPost">Edit</button>
-              <button id="DeletePost">Delete</button>
+              <button id="EditPost"> <a href="../router.php?route=UpdatePost&post_id=<?php echo ($post['id']); ?>" id="searchPost" style="text-decoration: none; color: white">Edit</a></button>
+              <button id="DeletePost"><a href="../Controllers/PostCRUDController.php?action=delete&post_id=<?php echo ($post['id']); ?>" id="searchPost" style="text-decoration: none; color: white">Delete</a></button>
             </div>
           </div>
           <?php endforeach; ?>
@@ -127,7 +127,7 @@ $user = $_SESSION['user'];
       <h1>Payment Info</h1>
       <p>Pay using Esewa</p>
       <img src="../images/RecentPosts/roomImage1.png" alt="">
-      <form action="">
+      <form action="../Controllers/BoostPostsController.php?action=post" method="POST" enctype="multipart/form-data">
         <label for="PostID">Post Id</label>
         <input type="text" id="PostID" name="PostID" placeholder="Post ID">
         <label for="PostName">Post Name</label>
