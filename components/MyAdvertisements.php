@@ -127,7 +127,7 @@ $user = $_SESSION['user'];
       <h1>Payment Info</h1>
       <p>Pay using Esewa</p>
       <img src="../images/RecentPosts/roomImage1.png" alt="">
-      <form action="">
+      <form action="../Controllers/BoostPostsController.php?action=post" method="POST" enctype="multipart/form-data">
         <label for="PostID">Post Id</label>
         <input type="text" id="PostID" name="PostID" placeholder="Post ID">
         <label for="PostName">Post Name</label>

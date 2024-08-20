@@ -30,17 +30,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
     $password = $_POST['password'];
 
     $user = $userLoginModel->loginUser($email);
-
+    
     if($user){
-        if(password_verify($password, $user['password'])){
-            $_SESSION['user'] = $user;
-            header('Location: ../index.php');
-            exit();
-        } else {
-            $_SESSION['passwordError'] = "Incorrect password";
-            header('Location: ../components/Login.php');
-            exit();
+        if($user['name']=="admin"){
+            if(password_verify($password, $user['password'])){
+                $_SESSION['user'] = $user;
+                header('Location: ../components/Dashboard.php');
+                exit();
+            } else {
+                $_SESSION['passwordError'] = "Incorrect password";
+                header('Location: ../components/Login.php');
+                exit();
+            }
+        }else {
+            if(password_verify($password, $user['password'])){
+                $_SESSION['user'] = $user;
+                header('Location: ../index.php');
+                exit();
+            } else {
+                $_SESSION['passwordError'] = "Incorrect password";
+                header('Location: ../components/Login.php');
+                exit();
+            }
         }
+        
     } else {
         $_SESSION['EmailError'] = "Email not found";
         header('Location: ../components/Login.php');
@@ -50,6 +63,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['action'] === 'logout') {
+    session_destroy();
+    header('Location: ../index.php');
+    exit();
+}
+
+
+if (isset($_GET['action']) && $_GET['action'] === 'logout') {
     session_destroy();
     header('Location: ../index.php');
     exit();

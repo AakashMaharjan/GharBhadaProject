@@ -1,3 +1,20 @@
+<?php
+
+require_once '../Models/UserModel.php';
+require_once '../Models/PostCRUDModel.php';
+require_once '../Database/DatabaseConnection.php';
+
+$userModel = new UserModel($db);
+$postModel = new PostCRUD($db);
+
+$users = $userModel->GetUsers();
+$posts = $postModel->GetPosts();
+
+$userCount = count($users)-2;
+$postCount = count($posts);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +34,7 @@
         <div id="AdminInfo">
             <img src="../images/contactMenu/ProfileImage.svg" alt="">
             <p>Admin</p>
+            <button id="Logout" onclick="location.href = '../Controllers/LoginAndRegistrationController.php?action=logout'">Logout</button>
         </div>
     </header>
     <main>
@@ -32,14 +50,14 @@
                 <img src="../images/Dashboard/peopleIcon.svg" alt="">
                 <div>
                     <h1>Total Users</h1>
-                    <p>5,325</p>
+                    <p><?php echo number_format($userCount) ?></p>
                 </div>
             </div>
             <div id="TotalPosts">
                 <img src="../images/Dashboard/listIcon.svg" alt="">
                 <div>
                     <h1>Total Posts</h1>
-                    <p>4,444</p>    
+                    <p><?php echo number_format($postCount) ?></p>    
                 </div>
             </div>
         </div>

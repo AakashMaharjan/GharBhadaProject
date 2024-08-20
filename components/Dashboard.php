@@ -1,3 +1,23 @@
+<?php
+
+require_once '../Models/UserModel.php';
+require_once '../Models/PostCRUDModel.php';
+require_once '../Models/BoostPostsModel.php';
+require_once '../Database/DatabaseConnection.php';
+
+$userModel = new UserModel($db);
+$postModel = new PostCRUD($db);
+$boostPostModel = new BoostPosts($db);
+
+$users = $userModel->GetUsers();
+$posts = $postModel->GetPosts();
+$boostedPosts = $boostPostModel->getBoostedPosts();
+
+$userCount = count($users)-2;
+$postCount = count($posts);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +36,7 @@
         <div id="AdminInfo">
             <img src="../images/contactMenu/ProfileImage.svg" alt="">
             <p>Admin</p>
+            <button id="Logout" onclick="location.href = '../Controllers/LoginAndRegistrationController.php?action=logout'">Logout</button>
         </div>
     </header>
     <main>
@@ -31,14 +52,14 @@
                 <img src="../images/Dashboard/peopleIcon.svg" alt="">
                 <div>
                     <h1>Total Users</h1>
-                    <p>5,325</p>
+                    <p><?php echo number_format($userCount) ?></p>
                 </div>
             </div>
             <div id="TotalPosts">
                 <img src="../images/Dashboard/listIcon.svg" alt="">
                 <div>
                     <h1>Total Posts</h1>
-                    <p>4,444</p>    
+                    <p><?php echo number_format($postCount) ?></p>    
                 </div>
             </div>
         </div>
@@ -50,26 +71,14 @@
                     <th>User ID</th>
                     <th>Action</th>
                 </tr>
+                <?php foreach($users as $user): ?>
+                    <?php if ($user['name'] === "admin" || $user['name'] === "") continue; ?>
                 <tr>
-                    <td>Ram</td>
-                    <td>1</td>
-                    <td><button>Delete</button></td>
+                    <td><?php echo ($user['name']) ?></td>
+                    <td><?php echo ($user['id']) ?></td>
+                    <td><button onclick="location.href = '../Controllers/UserController.php?action=delete&id=<?php echo ($user['id']) ?>'">Delete</button></td>
                 </tr>
-                <tr>
-                    <td>Laxman</td>
-                    <td>2</td>
-                    <td><button>Delete</button></td>
-                </tr>
-                <tr>
-                    <td>Sita</td>
-                    <td>3</td>
-                    <td><button>Delete</button></td>
-                </tr>
-                <tr>
-                    <td>Hanuman</td>
-                    <td>4</td>
-                    <td><button>Delete</button></td>
-                </tr>
+                <?php endforeach; ?>
             </table>
         </div>
         <div id="ListOfUsers">
@@ -81,30 +90,14 @@
                     <th>Post ID</th>
                     <th>Action</th>
                 </tr>
+                <?php foreach($posts as $post): ?>
                 <tr>
-                    <td>Ram</td>
-                    <td>1BHK flat</td>
-                    <td>1</td>
-                    <td><button>Delete</button></td>
+                    <td><?php echo ($post['name']) ?></td>
+                    <td><?php echo ($post['title']) ?></td>
+                    <td><?php echo ($post['id']) ?></td>
+                    <td><button><a href="../Controllers/PostCRUDController.php?action=delete&post_id=<?php echo ($post['id']); ?>" id="searchPost" style="text-decoration: none; color: white">Delete</a></button></td>
                 </tr>
-                <tr>
-                    <td>Ram</td>
-                    <td>1BHK flat</td>
-                    <td>1</td>
-                    <td><button>Delete</button></td>
-                </tr>
-                <tr>
-                    <td>Ram</td>
-                    <td>1BHK flat</td>
-                    <td>1</td>
-                    <td><button>Delete</button></td>
-                </tr>
-                <tr>
-                    <td>Ram</td>
-                    <td>1BHK flat</td>
-                    <td>1</td>
-                    <td><button>Delete</button></td>
-                </tr>
+                <?php endforeach; ?>
             </table>
         </div>
         <div id="ListOfUsers">
@@ -116,18 +109,14 @@
                     <th>Payment Image</th>
                     <th>Action</th>
                 </tr>
+                <?php foreach($boostedPosts as $boostedPost): ?>
                 <tr>
-                    <td>1</td>  
-                    <td>1BHK flat</td>
-                    <td><img src="../images/RecentPosts/roomImage1.png" alt=""></td>
+                    <td><?php echo ($boostedPost['post_id']) ?></td>  
+                    <td><?php echo ($boostedPost['post_name']) ?></td>
+                    <td><img src="<?php echo ($boostedPost['transaction_screenshot']) ?>" alt=""></td>
                     <td><button>Delete</button></td>
                 </tr>
-                <tr>
-                    <td>2</td>  
-                    <td>1BHK flat</td>
-                    <td><img src="../images/RecentPosts/roomImage1.png" alt=""></td>
-                    <td><button>Delete</button></td>
-                </tr>
+                <?php endforeach; ?>
             </table>
         </div>
     </main>

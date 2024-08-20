@@ -82,7 +82,15 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['post_
     // Call the delete method from the PostCRUD class
     $result = $PostCRUDModel->deletePost($post_id);
 
+    session_start();
+    $user=$_SESSION['user'];
+    $name=$user['name'];
+
     if ($result) {
+        if($name === "admin"){
+            header('Location: ../router.php?route=DashBoard');
+            exit();
+        }
         header('Location: ../router.php?route=MyAdvertisements');
         exit();
     }
