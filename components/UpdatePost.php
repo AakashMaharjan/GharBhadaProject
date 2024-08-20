@@ -137,7 +137,7 @@ if (isset($_GET['post_id'])) {
         </div>
         <h1 id="PostAnAdvertisementTitle">Post an advertisment</h1>
         <p id="fillAllBoxes">Please fill all boxes</p>
-        <form action="../Controllers/PostCRUDController.php?action=update" method="POST" onsubmit="ValidatePostForm(event)" enctype="multipart/form-data">
+        <form action="../Controllers/PostCRUDController.php?action=update" id="PostForm" method="POST" onsubmit="ValidatePostForm(event)" enctype="multipart/form-data">
             <input type="text" name="user_id" value="<?php echo($id) ?>" hidden>
             <input type="text" name="id" value="<?php echo($Postid) ?>" hidden>
             <div class="formGroupLarge">

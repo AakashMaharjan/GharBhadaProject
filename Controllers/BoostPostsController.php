@@ -22,4 +22,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['ac
     exit();
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['action'] === 'boost'){
+    $post_id = $_POST['PostID'];
+    $post_name = $_POST['PostName'];
+    $post_section = $_POST['Type'];
+
+    $BoostPosts->BoostPost($post_id, $post_name, $post_section);
+
+    header('Location: ../router.php?route=Featured');
+    exit();
+}
+
+if (isset($_GET['action']) && $_GET['action'] === 'delete'){
+    $post_id = $_GET['post_id'];
+
+    $BoostPosts->deleteBoostPost($post_id);
+
+    header('Location: ../router.php?route=Featured');
+    exit();
+}
+
+if (isset($_GET['action']) && $_GET['action'] === 'DeleteBoostedPost'){
+    $id = $_GET['id'];
+
+    $BoostPosts->deleteBoostedPost($id);
+
+    header('Location: ../router.php?route=DashBoard');
+    exit();
+}
+
+
+
+
+
 ?>

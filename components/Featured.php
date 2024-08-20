@@ -2,16 +2,31 @@
 
 require_once '../Models/UserModel.php';
 require_once '../Models/PostCRUDModel.php';
+require_once '../Models/BoostPostsModel.php';
 require_once '../Database/DatabaseConnection.php';
 
 $userModel = new UserModel($db);
 $postModel = new PostCRUD($db);
+$boostPostModel = new BoostPosts($db);
 
 $users = $userModel->GetUsers();
 $posts = $postModel->GetPosts();
+$boostedPosts = $boostPostModel->getBoostPost();
+
 
 $userCount = count($users)-2;
 $postCount = count($posts);
+
+session_start();
+
+if (!isset($_SESSION['boostedPostCount'])) {
+    $_SESSION['boostedPostCount'] = mysqli_num_rows($boostedPosts);
+}
+
+$boostedPostCount = $_SESSION['boostedPostCount']*250;
+
+
+
 
 ?>
 
@@ -43,7 +58,7 @@ $postCount = count($posts);
                 <img src="../images/Dashboard/shopIcon.svg" alt="">
                 <div>
                     <h1>Total Earnings</h1>
-                    <p>Rs.30,000</p>
+                    <p>Rs. <?php echo number_format($boostedPostCount) ?></p>
                 </div>
             </div>
             <div id="TotalUsers">
@@ -61,20 +76,20 @@ $postCount = count($posts);
                 </div>
             </div>
         </div>
-        <form action="">
+        <form action="../Controllers/BoostPostsController.php?action=boost" method="POST">
             <div id="formFeature">
                 <label for="">Post ID</label><br>
-                <input type="text" placeholder="Post ID">
+                <input type="text" placeholder="Post ID" name="PostID">
             </div>
             <div id="formFeature">
                 <label for="">Post Name</label><br>
-                <input type="text" placeholder="Post Name">
+                <input type="text" placeholder="Post Name" name="PostName">
             </div>
             <div id="formFeature">
                 <label for="">Type</label><br>
                 <select name="Type" id="Type">
-                    <option value="Featured">Featured</option>
-                    <option value="Best Deals">Best Deals</option>
+                    <option value="featured">Featured</option>
+                    <option value="bestdeals">Best Deals</option>
                 </select>
             </div>
             <div>
@@ -90,18 +105,14 @@ $postCount = count($posts);
                     <th>Boosted Date</th>
                     <th>Action</th>
                 </tr>
+                <?php foreach($boostedPosts as $boostedPost): ?>
                 <tr>
-                    <td>1BHK flat</td>
-                    <td>Featured</td>
-                    <td>24th of Jan</td>
-                    <td><button>Delete</button></td>
+                    <td><?php echo ($boostedPost['post_name']) ?></td>
+                    <td><?php echo ($boostedPost['post_section']) ?></td>
+                    <td><?php echo ($boostedPost['created_at']) ?></td>
+                    <td><button><a href="../Controllers/BoostPostsController.php?action=delete&post_id=<?php echo ($boostedPost['post_id']); ?>" id="searchPost" style="text-decoration: none; color: white">Delete</a></button></td>   
                 </tr>
-                <tr>
-                    <td>1BHK flat</td>
-                    <td>Featured</td>
-                    <td>24th of Jan</td>
-                    <td><button>Delete</button></td>
-                </tr>
+                <?php endforeach; ?>
             </table>
         </div>
     </main>

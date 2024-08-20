@@ -180,6 +180,40 @@ class PostCRUD
             die('Execute failed: ' . $stmt->error);
         }
     }
+
+    public function GetFeaturedPost() {
+        $query = "SELECT * FROM Posts WHERE status=1 ORDER BY RAND()";
+        $stmt = $this->db->query($query);
+    
+        if ($stmt === false) {
+            die('Query failed: ' . $this->db->error);
+        }
+    
+        // Fetch all rows into an array
+        $posts = [];
+        while ($post = $stmt->fetch_assoc()) {
+            $posts[] = $post;
+        }
+    
+        return $posts;
+    }
+    
+    public function GetBestDealsPost() {
+        $query = "SELECT * FROM Posts WHERE status=2";
+        $stmt = $this->db->query($query);
+    
+        if ($stmt === false) {
+            die('Query failed: ' . $this->db->error);
+        }
+    
+        // Fetch all rows into an array
+        $posts = [];
+        while ($post = $stmt->fetch_assoc()) {
+            $posts[] = $post;
+        }
+    
+        return $posts;
+    }
     
     
 }

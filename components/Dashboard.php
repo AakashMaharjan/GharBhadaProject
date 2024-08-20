@@ -11,10 +11,23 @@ $boostPostModel = new BoostPosts($db);
 
 $users = $userModel->GetUsers();
 $posts = $postModel->GetPosts();
+$boostPost = $boostPostModel->getBoostPost();
 $boostedPosts = $boostPostModel->getBoostedPosts();
+
 
 $userCount = count($users)-2;
 $postCount = count($posts);
+
+session_start();
+
+if (!isset($_SESSION['boostedPostCount'])) {
+    $_SESSION['boostedPostCount'] = mysqli_num_rows($boostPost);
+}
+
+$boostedPostCount = $_SESSION['boostedPostCount']*250;
+
+
+
 
 ?>
 
@@ -45,7 +58,7 @@ $postCount = count($posts);
                 <img src="../images/Dashboard/shopIcon.svg" alt="">
                 <div>
                     <h1>Total Earnings</h1>
-                    <p>Rs.30,000</p>
+                    <p>Rs. <?php echo number_format($boostedPostCount) ?></p>
                 </div>
             </div>
             <div id="TotalUsers">
@@ -114,7 +127,7 @@ $postCount = count($posts);
                     <td><?php echo ($boostedPost['post_id']) ?></td>  
                     <td><?php echo ($boostedPost['post_name']) ?></td>
                     <td><img src="<?php echo ($boostedPost['transaction_screenshot']) ?>" alt=""></td>
-                    <td><button>Delete</button></td>
+                    <td><button><a href="../Controllers/BoostPostsController.php?action=DeleteBoostedPost&id=<?php echo ($boostedPost['id']); ?>" id="searchPost" style="text-decoration: none; color: white">Delete</a></button></td>
                 </tr>
                 <?php endforeach; ?>
             </table>

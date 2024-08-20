@@ -5,6 +5,8 @@ require_once 'Database/DatabaseConnection.php';
 $PostCRUDModel = new PostCRUD($db);
 
 $AllPosts = $PostCRUDModel->getAllPosts();
+$Featured = $PostCRUDModel->getFeaturedPost();
+$BestDeals = $PostCRUDModel->getBestDealsPost();
 ?>
 
 <section id="allPostsAndFeaturedMain">
@@ -45,58 +47,23 @@ $AllPosts = $PostCRUDModel->getAllPosts();
             </div>
             <div class="FeaturedSlidesContainer">
                 <div class="FeaturedSlider">
-                    <div class="FeaturedSlide">
-                        <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-              <h1>1BHK Available for Rent slide</h1>
-              <p id="price1">Rs10,000/mo.</p>
-              <div id="roomCardType1">
-                <div id="roomCardTypeLocation1">Baluwatar</div>
-                <div id="roomCardTypeForNumber1">For family</div>  
-              </div>
-              <div id="PhoneNumberCard1">
-                <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon1">
-                <p>9841234567</p>
-              </div>
+                  <?php foreach ($Featured as $feature): ?>
+                    <a href="../router.php?route=SinglePost&post_id=<?php echo ($feature['id']); ?>" id="searchPost" style="text-decoration: none;color: black;">
+                  <div class="FeaturedSlide">
+                        <img src="<?php echo($feature['image1']) ?>" alt="room image 1">
+                        <h1><?php echo($feature['title']) ?></h1>
+                        <p id="price1"><?php echo($feature['rent']) ?>/mo.</p>
+                    <div id="roomCardType1">
+                        <div id="roomCardTypeLocation1"><?php echo($feature['location']) ?></div>
+                        <div id="roomCardTypeForNumber1"><?php echo($feature['for_whom']) ?></div>  
+                     </div>
+                    <div id="PhoneNumberCard1">
+                      <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon1">
+                      <p><?php echo($feature['phone_number']) ?></p>
                     </div>
-                    <div class="FeaturedSlide">
-                        <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-              <h1>1BHK Available for Rent</h1>
-              <p id="price1">Rs10,000/mo.</p>
-              <div id="roomCardType1">
-                <div id="roomCardTypeLocation1">Baluwatar</div>
-                <div id="roomCardTypeForNumber1">For family</div>  
-              </div>
-              <div id="PhoneNumberCard1">
-                <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon1">
-                <p>9841234567</p>
-              </div>
-                    </div>
-                    <div class="FeaturedSlide">
-                        <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-              <h1>1BHK Available for Rent</h1>
-              <p id="price1">Rs10,000/mo.</p>
-              <div id="roomCardType1">
-                <div id="roomCardTypeLocation1">Baluwatar</div>
-                <div id="roomCardTypeForNumber1">For family</div>  
-              </div>
-              <div id="PhoneNumberCard1">
-                <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon1">
-                <p>9841234567</p>
-              </div>
-                    </div>
-                    <div class="FeaturedSlide">
-                        <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-              <h1>1BHK Available for Rent</h1>
-              <p id="price1">Rs10,000/mo.</p>
-              <div id="roomCardType1">
-                <div id="roomCardTypeLocation1">Baluwatar</div>
-                <div id="roomCardTypeForNumber1">For family</div>  
-              </div>
-              <div id="PhoneNumberCard1">
-                <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon1">
-                <p>9841234567</p>
-              </div>
-                    </div>
+                  </div>
+                    </a>
+                  <?php endforeach; ?>
                 </div>
             </div>
             <div id="rightButton1" class="btn next1">
@@ -116,59 +83,25 @@ $AllPosts = $PostCRUDModel->getAllPosts();
             </div>
             <div class="FeaturedSlidesContainer2">
                 <div class="FeaturedSlider2">
+                  <?php foreach ($BestDeals as $best): ?>
+                    <a href="../router.php?route=SinglePost&post_id=<?php echo ($best['id']); ?>" id="searchPost" style="text-decoration: none;color: black;">
                     <div class="FeaturedSlide2">
-                        <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-              <h1>1BHK Available for Rent slide</h1>
-              <p id="price2">Rs10,000/mo.</p>
+                        <img src="<?php echo($best['image1']) ?>" alt="room image 1">
+              <h1><?php echo($best['title']) ?></h1>
+              <p id="price2"><?php echo($best['rent']) ?>/mo.</p>
               <div id="roomCardType2">
-                <div id="roomCardTypeLocation2">Baluwatar</div>
-                <div id="roomCardTypeForNumber2">For family</div>  
+                <div id="roomCardTypeLocation2"><?php echo($best['location']) ?></div>
+                <div id="roomCardTypeForNumber2"><?php echo($best['for_whom']) ?></div>  
               </div>
               <div id="PhoneNumberCard2">
                 <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon2">
-                <p>9841234567</p>
+                <p><?php echo($best['phone_number']) ?></p>
               </div>
                     </div>
-                    <div class="FeaturedSlide2">
-                        <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-              <h1>1BHK Available for Rent</h1>
-              <p id="price1">Rs10,000/mo.</p>
-              <div id="roomCardType1">
-                <div id="roomCardTypeLocation1">Baluwatar</div>
-                <div id="roomCardTypeForNumber1">For family</div>  
-              </div>
-              <div id="PhoneNumberCard1">
-                <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon1">
-                <p>9841234567</p>
-              </div>
-                    </div>
-                    <div class="FeaturedSlide2">
-                        <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-              <h1>1BHK Available for Rent</h1>
-              <p id="price1">Rs10,000/mo.</p>
-              <div id="roomCardType1">
-                <div id="roomCardTypeLocation1">Baluwatar</div>
-                <div id="roomCardTypeForNumber1">For family</div>  
-              </div>
-              <div id="PhoneNumberCard1">
-                <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon1">
-                <p>9841234567</p>
-              </div>
-                    </div>
-                    <div class="FeaturedSlide2">
-                        <img src="images/RecentPosts/roomImage1.png" alt="room image 1">
-              <h1>1BHK Available for Rent</h1>
-              <p id="price1">Rs10,000/mo.</p>
-              <div id="roomCardType1">
-                <div id="roomCardTypeLocation1">Baluwatar</div>
-                <div id="roomCardTypeForNumber1">For family</div>  
-              </div>
-              <div id="PhoneNumberCard1">
-                <img src="images/RecentPosts/phoneIcon.svg" alt="phone icon" id="phoneIcon1">
-                <p>9841234567</p>
-              </div>
-                    </div>
+                    </a>
+                  <?php endforeach; ?>
                 </div>
+
             </div>
             <div id="rightButton2" class="btn next2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="45" height="89" viewBox="0 0 45 89" fill="none">

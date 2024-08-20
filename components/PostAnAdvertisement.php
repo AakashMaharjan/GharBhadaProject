@@ -123,7 +123,7 @@ $id = $user['id'];
         </div>
         <h1 id="PostAnAdvertisementTitle">Post an advertisment</h1>
         <p id="fillAllBoxes">Please fill all boxes</p>
-        <form action="../Controllers/PostCRUDController.php?action=post" method="POST" onsubmit="ValidatePostForm(event)" enctype="multipart/form-data" id="PostForm">
+        <form action="../Controllers/PostCRUDController.php?action=post" id="PostForm" method="POST" onsubmit="ValidatePostForm(event)" enctype="multipart/form-data" >
             <input type="text" name="user_id" value="<?php echo($id) ?>" hidden>
             <div class="formGroupLarge">
             <div class="formGroup">
