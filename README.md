@@ -88,3 +88,17 @@ Demo data was manually inserted from the Post form
 The respect Models for getting posts from the database were created. The RecentPosts and AllPosts Included the Database Connection and the Model after which they get the required posts and assign them to local variables. The local variables are in array form so they are looped with foreach and data is shown in homepage.  
 
 The SinglePost gets the user_id from the session and sends that id to the model. The model responds with the array of posts which the user has created which in shown in MyAdvertisements.
+
+
+##### CRUD Update
+
+The edit button in myadvertisements sends the loggedin user to the updateForm where the user updates the posts. When update button is pressed Controller is called which takes the data and sends to model. The model updates the posts and user is sent to homepage  
+
+##### CRUD Delete
+
+The delete button in MyAdvertisements calls the controller with post ID. The model is called to delete the post and user is sent to MyAdvertisements. The images are also deleted in the folder using file_exists and unlink function.
+
+
+#### Search
+
+The users gives the search location and search is pressed after that the user is taken to the search page where the user location is set to location. The location is sent to Model which searches the data and returns. The data is then looped in search page.
