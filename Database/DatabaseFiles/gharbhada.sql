@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2024 at 06:24 AM
+-- Generation Time: Aug 20, 2024 at 10:48 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,6 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `boostedposts`
+--
+
+CREATE TABLE `boostedposts` (
+  `id` int(11) NOT NULL,
+  `post_id` varchar(255) NOT NULL,
+  `post_name` varchar(255) NOT NULL,
+  `transaction_screenshot` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `boostedposts`
+--
+
+INSERT INTO `boostedposts` (`id`, `post_id`, `post_name`, `transaction_screenshot`, `created_at`) VALUES
+(1, '19', '3 bhk flat on rent at jhamshikhel', '../BoostPosts/image-2@2x.png', '2024-08-20 08:39:29'),
+(2, '20', 'Flat on Rent', '../BoostPosts/testimonial1.jpg', '2024-08-20 08:40:15');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `posts`
 --
 
@@ -36,7 +58,7 @@ CREATE TABLE `posts` (
   `rent` decimal(10,2) NOT NULL,
   `location` varchar(255) NOT NULL,
   `type` enum('residential','commercial') NOT NULL,
-  `floor` int(11) NOT NULL,
+  `floor` varchar(40) DEFAULT NULL,
   `entrance` varchar(255) NOT NULL,
   `for_whom` enum('family','single') NOT NULL,
   `road_size` int(11) NOT NULL,
@@ -56,13 +78,13 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `name`, `phone_number`, `title`, `rent`, `location`, `type`, `floor`, `entrance`, `for_whom`, `road_size`, `bedrooms`, `living_rooms`, `restrooms`, `image1`, `image2`, `image3`, `description`, `created_at`, `updated_at`) VALUES
-(14, 10, 'Ram Laxman', '9712348237', '2BHK flat Available for Rent', 25000.00, 'Baluwatar', 'residential', 0, 'Main', '', 14, 2, 1, 1, '../PostImages/1+1.webp', '../PostImages/1+2.webp', '../PostImages/1+3.webp', 'Discover serenity and convenience in this charming room for rent nestled in the vibrant city of Kathmandu, Nepal. Perfectly situated near the bustling district of Thamel, this room offers a tranquil retreat amidst the city\'s lively atmosphere. The furnished bedroom features a comfortable bed, ample storage space with a wardrobe, and a study desk ideal for work or study sessions.', '2024-08-19 03:50:12', '2024-08-19 03:50:12'),
-(15, 10, 'Ram Laxman', '9712348237', 'Room for rent at old Baneshwor', 22.00, 'Baneshwor', 'residential', 0, 'Seperated', '', 20, 1, 1, 1, '../PostImages/2+1.webp', '../PostImages/2+2.webp', '../PostImages/2+3.webp', 'You\'ll have access to a modern, shared bathroom equipped with hot water facilities. Enjoy the convenience of a shared kitchen where you can prepare meals with ease. High-speed internet, electricity, and water utilities are all included in the rent, ensuring a hassle-free living experience.', '2024-08-19 03:54:31', '2024-08-19 03:54:31'),
-(16, 10, 'Ram Laxman', '9712348237', '2 bhk flat on rent at sanepa', 35.00, 'Sanepa', 'residential', 0, 'Main', '', 10, 2, 1, 1, '../PostImages/3+1.webp', '../PostImages/3+2.webp', '../PostImages/3+3.webp', 'With 24/7 security and CCTV surveillance, safety is prioritized. Take advantage of the rooftop terrace offering breathtaking views, perfect for relaxation or social gatherings. Whether you\'re a student or a professional, this room provides the ideal blend of comfort and accessibility in Kathmandu.', '2024-08-19 03:57:50', '2024-08-19 03:57:50'),
-(17, 10, 'Ram Laxman', '9712348237', 'Flat on rent - Bagdol', 25000.00, 'Bagdol', 'residential', 0, 'Seperated', '', 14, 1, 1, 1, '../PostImages/4+1.webp', '../PostImages/4+2.webp', '../PostImages/4+3.webp', 'Discover serenity and convenience in this charming room for rent nestled in the vibrant city of Kathmandu, Nepal. Perfectly situated near the bustling district of Thamel, this room offers a tranquil retreat amidst the city\'s lively atmosphere. The furnished bedroom features a comfortable bed, ample storage space with a wardrobe, and a study desk ideal for work or study sessions. ', '2024-08-19 04:00:59', '2024-08-19 04:00:59'),
-(18, 10, 'Ram Laxman', '9712348237', 'sunny 3bk 1st floor 26000', 26000.00, 'Manjushri Marg', 'residential', 0, 'Seperated', '', 20, 1, 1, 1, '../PostImages/5+1.webp', '../PostImages/5+2.webp', '../PostImages/5+3.webp', 'You\'ll have access to a modern, shared bathroom equipped with hot water facilities. Enjoy the convenience of a shared kitchen where you can prepare meals with ease. High-speed internet, electricity, and water utilities are all included in the rent, ensuring a hassle-free living experience.', '2024-08-19 04:05:03', '2024-08-19 04:05:03'),
-(19, 11, 'Radha Krishna', '9723149793', '3 bhk flat on rent at jhamshikhel', 30000.00, 'Jhamshikhel', 'residential', 0, 'Main', '', 14, 3, 1, 1, '../PostImages/6+1.webp', '../PostImages/6+2.webp', '../PostImages/6+3.webp', 'You\'ll have access to a modern, shared bathroom equipped with hot water facilities. Enjoy the convenience of a shared kitchen where you can prepare meals with ease. High-speed internet, electricity, and water utilities are all included in the rent, ensuring a hassle-free living experience. ', '2024-08-19 04:10:40', '2024-08-19 04:10:40'),
-(20, 11, 'Radha Krishna', '9723149793', 'Flat on Rent', 20000.00, ' Suryabinayak', 'residential', 0, 'Main', '', 14, 1, 1, 1, '../PostImages/7+1.webp', '../PostImages/7+2.webp', '../PostImages/7+3.webp', 'With 24/7 security and CCTV surveillance, safety is prioritized. Take advantage of the rooftop terrace offering breathtaking views, perfect for relaxation or social gatherings. Whether you\'re a student or a professional, this room provides the ideal blend of comfort and accessibility in Kathmandu.', '2024-08-19 04:14:21', '2024-08-19 04:14:21');
+(14, 10, 'Ram Laxman', '9712348237', '2BHK flat Available for Rent', 25000.00, 'Baluwatar', 'residential', 'Ground floor', 'Main', 'family', 14, 2, 1, 1, '../PostImages/1+1.webp', '../PostImages/1+2.webp', '../PostImages/1+3.webp', 'Discover serenity and convenience in this charming room for rent nestled in the vibrant city of Kathmandu, Nepal. Perfectly situated near the bustling district of Thamel, this room offers a tranquil retreat amidst the city\'s lively atmosphere. The furnished bedroom features a comfortable bed, ample storage space with a wardrobe, and a study desk ideal for work or study sessions.', '2024-08-19 03:50:12', '2024-08-19 10:53:54'),
+(15, 10, 'Ram Laxman', '9712348237', 'Room for rent at old Baneshwor', 22000.00, 'Baneshwor', 'residential', 'Ground floor', 'Seperated', 'family', 20, 1, 1, 1, '../PostImages/2+1.webp', '../PostImages/2+2.webp', '../PostImages/2+3.webp', 'You\'ll have access to a modern, shared bathroom equipped with hot water facilities. Enjoy the convenience of a shared kitchen where you can prepare meals with ease. High-speed internet, electricity, and water utilities are all included in the rent, ensuring a hassle-free living experience.', '2024-08-19 03:54:31', '2024-08-20 03:35:13'),
+(16, 10, 'Ram Laxman', '9712348237', '2 bhk flat on rent at sanepa', 35000.00, 'Sanepa', 'residential', 'Ground floor', 'Main', 'family', 10, 2, 1, 1, '../PostImages/3+1.webp', '../PostImages/3+2.webp', '../PostImages/3+3.webp', 'With 24/7 security and CCTV surveillance, safety is prioritized. Take advantage of the rooftop terrace offering breathtaking views, perfect for relaxation or social gatherings. Whether you\'re a student or a professional, this room provides the ideal blend of comfort and accessibility in Kathmandu.', '2024-08-19 03:57:50', '2024-08-20 03:35:42'),
+(17, 10, 'Ram Laxman', '9712348237', 'Flat on rent - Bagdol', 25000.00, 'Bagdol', 'residential', 'Ground floor', 'Seperated', 'family', 14, 1, 1, 1, '../PostImages/4+1.webp', '../PostImages/4+2.webp', '../PostImages/4+3.webp', 'Discover serenity and convenience in this charming room for rent nestled in the vibrant city of Kathmandu, Nepal. Perfectly situated near the bustling district of Thamel, this room offers a tranquil retreat amidst the city\'s lively atmosphere. The furnished bedroom features a comfortable bed, ample storage space with a wardrobe, and a study desk ideal for work or study sessions. ', '2024-08-19 04:00:59', '2024-08-19 10:54:38'),
+(18, 10, 'Ram Laxman', '9712348237', 'sunny 3bk 1st floor 26000', 26000.00, 'Manjushri Marg', 'residential', 'First floor', 'Seperated', 'family', 20, 1, 1, 1, '../PostImages/5+1.webp', '../PostImages/5+2.webp', '../PostImages/5+3.webp', 'You\'ll have access to a modern, shared bathroom equipped with hot water facilities. Enjoy the convenience of a shared kitchen where you can prepare meals with ease. High-speed internet, electricity, and water utilities are all included in the rent, ensuring a hassle-free living experience.', '2024-08-19 04:05:03', '2024-08-19 10:54:50'),
+(19, 11, 'Radha Krishna', '9723149793', '3 bhk flat on rent at jhamshikhel', 30000.00, 'Jhamshikhel', 'residential', 'First floor', 'Main', 'single', 14, 3, 1, 1, '../PostImages/6+1.webp', '../PostImages/6+2.webp', '../PostImages/6+3.webp', 'You\'ll have access to a modern, shared bathroom equipped with hot water facilities. Enjoy the convenience of a shared kitchen where you can prepare meals with ease. High-speed internet, electricity, and water utilities are all included in the rent, ensuring a hassle-free living experience. ', '2024-08-19 04:10:40', '2024-08-19 10:55:05'),
+(20, 11, 'Radha Krishna', '9723149793', 'Flat on Rent', 20000.00, ' Suryabinayak', 'residential', 'First floor', 'Main', 'family', 14, 1, 1, 1, '../PostImages/7+1.webp', '../PostImages/7+2.webp', '../PostImages/7+3.webp', 'With 24/7 security and CCTV surveillance, safety is prioritized. Take advantage of the rooftop terrace offering breathtaking views, perfect for relaxation or social gatherings. Whether you\'re a student or a professional, this room provides the ideal blend of comfort and accessibility in Kathmandu.', '2024-08-19 04:14:21', '2024-08-20 03:34:44');
 
 -- --------------------------------------------------------
 
@@ -86,11 +108,18 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `password`, `created_at`) VALUES
 (1, '', '', '', '$2y$10$UI5OyA7XyGyqoNfYNm9onOZphtFTgiMbPrqbnqSO03HKpYHBxuW0e', '2024-08-18 12:18:10'),
 (10, 'Ram Laxman', 'ramlaxman@gmail.com', '9712348237', '$2y$10$fjlDe3TQUIzgn115r2ASqeTCFm/8tRdNuNlvr0bhPdZm3rr7zddJq', '2024-08-18 12:46:04'),
-(11, 'Radha Krishna', 'radhakrishna@gmail.com', '9723149793', '$2y$10$hh8OQgP8stwziBJOImwfeuDZYNVUu6I/zG1QphaQqn63jrA5amHKy', '2024-08-19 04:07:40');
+(11, 'Radha Krishna', 'radhakrishna@gmail.com', '9723149793', '$2y$10$hh8OQgP8stwziBJOImwfeuDZYNVUu6I/zG1QphaQqn63jrA5amHKy', '2024-08-19 04:07:40'),
+(12, 'admin', 'admin@gmail.com', '9712342314', '$2y$10$6sJJoC9Rh0iy4Hq0HLqHzObeUtIX0oJ4hv3j1r8m1ZjWAhxJHQU6i', '2024-08-20 07:07:09');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `boostedposts`
+--
+ALTER TABLE `boostedposts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `posts`
@@ -111,16 +140,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `boostedposts`
+--
+ALTER TABLE `boostedposts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables

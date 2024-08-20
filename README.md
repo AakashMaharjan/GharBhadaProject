@@ -101,4 +101,14 @@ The delete button in MyAdvertisements calls the controller with post ID. The mod
 
 #### Search
 
-The users gives the search location and search is pressed after that the user is taken to the search page where the user location is set to location. The location is sent to Model which searches the data and returns. The data is then looped in search page.
+The users gives the search location and search is pressed after that the user is taken to the search page where the user location is set to location. The location is sent to Model which searches the data and returns. The data is then looped in search page.  
+
+#### Admin
+Admin login made and admin dashboard backend made  
+count function used to count the number of users and advertisements  
+status field made for featured and best deals  
+status 0 deafault  
+1 Featured  
+2 Best Deals  
+Boost Post feature made where the user can scan QR code  
+When post is boosted it is added in bootpost table and status is updated and when deleted from the table status is default
